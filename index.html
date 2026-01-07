@@ -42,9 +42,9 @@
         <a href="https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9" class="gift-btn">
             Получить подарок №3
         </a>
-        <a href="https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9" class="gift-btn">
-            Получить подарок №4
-        </a>
+
+        <button class="gift-btn" onclick="openGift4()">Получить подарок №4</button>
+
         <a href="https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9" class="gift-btn">
             Получить подарок №5
         </a>
@@ -90,6 +90,18 @@
         <button onclick="backToMenu()">⬅ Назад</button>
     </div>
 
+    <!-- ПОДАРОК №4 -->
+    <div class="container hidden" id="gift4">
+        <h2>🎁 Ваш подарок</h2>
+
+        <div class="congrats-box center-text">
+            Подарок №4 находится в куртке,<br>
+            во внутреннем кармане у Глебушки
+        </div>
+
+        <button onclick="backToMenu()">⬅ Назад</button>
+    </div>
+
 </div>
 
 <script>
@@ -119,9 +131,15 @@
         document.getElementById('gift1').classList.remove('hidden');
     }
 
+    function openGift4() {
+        document.getElementById('content').classList.add('hidden');
+        document.getElementById('gift4').classList.remove('hidden');
+    }
+
     function backToMenu() {
         document.getElementById('congrats').classList.add('hidden');
         document.getElementById('gift1').classList.add('hidden');
+        document.getElementById('gift4').classList.add('hidden');
 
         const content = document.getElementById('content');
         content.classList.add('hidden');
@@ -131,5 +149,4 @@
 </script>
 
 </body>
-
 </html>
