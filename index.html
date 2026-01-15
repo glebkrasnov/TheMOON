@@ -35,10 +35,8 @@
 
         <button class="gift-btn" onclick="openCongrats()">💌 Поздравление</button>
         <button class="gift-btn" onclick="openGift1()">Получить подарок №1</button>
+        <button class="gift-btn" onclick="openGift2()">Получить подарок №2</button>
 
-        <a href="https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9" class="gift-btn">
-            Получить подарок №2
-        </a>
         <a href="https://yandex.ru/pogoda/ru?lon=43.8074&lat=56.2086&ll=43.8074_56.2086&z=9" class="gift-btn">
             Получить подарок №3
         </a>
@@ -92,18 +90,28 @@
         <button onclick="backToMenu()">⬅ Назад</button>
     </div>
 
+    <!-- ПОДАРОК №2 -->
+    <div class="container hidden" id="gift2">
+        <h2>🎁 Ваш подарок</h2>
+
+        <div class="congrats-box center-text">
+            <img src="gift2.jpg"
+                 alt="Подарок №2"
+                 style="width:100%; max-width:100%; border-radius:10px;">
+        </div>
+
+        <button onclick="backToMenu()">⬅ Назад</button>
+    </div>
+
     <!-- ПОДАРОК №4 -->
     <div class="container hidden" id="gift4">
         <h2>🎁 Ваш подарок</h2>
 
         <div class="congrats-box center-text">
             Подарок №4 (по секрету 🤫)<br>
-            находится в куртке,<br>
-            во внутреннем кармане у Глебушки.<br>
-            Придётся тебе силой или как-нибудь<br> 
-            забрать его, так как отдавть тебе<br> 
-            он не хочет 🙅‍♂️<br>
-            <strong>Действуй❗</strong>
+            находится в рюкзаке,<br>
+            в верхнем, маленьком кармане у Глебушки.<br>
+            <strong>Забирай❗</strong>
         </div>
 
         <button onclick="backToMenu()">⬅ Назад</button>
@@ -138,6 +146,11 @@
         document.getElementById('gift1').classList.remove('hidden');
     }
 
+    function openGift2() {
+        document.getElementById('content').classList.add('hidden');
+        document.getElementById('gift2').classList.remove('hidden');
+    }
+
     function openGift4() {
         document.getElementById('content').classList.add('hidden');
         document.getElementById('gift4').classList.remove('hidden');
@@ -146,6 +159,7 @@
     function backToMenu() {
         document.getElementById('congrats').classList.add('hidden');
         document.getElementById('gift1').classList.add('hidden');
+        document.getElementById('gift2').classList.add('hidden');
         document.getElementById('gift4').classList.add('hidden');
 
         const content = document.getElementById('content');
@@ -157,17 +171,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
