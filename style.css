@@ -12,13 +12,13 @@ body {
 
 .login-screen {
     min-height: 100vh;
-    background: url("gift.jpg") no-repeat center center;
+    background: url("myphoto.jpg") no-repeat center center;
     background-size: cover;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 16px;
 }
 
 .login-screen::after {
@@ -33,29 +33,30 @@ body {
     z-index: 1;
 
     width: 100%;
-    max-width: 360px;
+    max-width: 320px;
     background: rgba(255,255,255,0.95);
-    padding: 20px;
+    padding: 16px 16px 14px;
     border-radius: 14px;
 
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px; /* 🔥 компактно */
 }
 
 h2 {
     margin: 0;
     text-align: center;
+    font-size: 18px;
 }
 
 input {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     font-size: 16px;
 }
 
 button {
-    padding: 14px;
+    padding: 12px;
     font-size: 16px;
     border: none;
     border-radius: 8px;
@@ -66,7 +67,8 @@ button {
 .error {
     color: red;
     text-align: center;
-    min-height: 18px;
+    min-height: 16px;
+    font-size: 14px;
 }
 
 .hidden {
@@ -94,21 +96,23 @@ button {
     align-items: center;
 }
 
-/* кнопка */
-.final-btn {
-    padding: 16px 40px;
-    font-size: 18px;
-    border-radius: 999px;
-    background: #f6c1d1;
-    color: #40202b;
-    text-decoration: none;
-
+/* текст в конце */
+.final-text {
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.4;
+    color: #f6c1d1; /* нежно-розовый */
     opacity: 0;
     transform: translateY(20px);
     transition: 0.6s ease;
 }
 
-.final-btn.show {
+.final-text strong {
+    font-weight: 600;
+}
+
+/* появление */
+.final-text.show {
     opacity: 1;
     transform: translateY(0);
 }
@@ -116,6 +120,10 @@ button {
 /* мобильная адаптация */
 @media (max-width: 480px) {
     .login-box {
-        padding: 16px;
+        max-width: 300px;
+    }
+
+    .final-text {
+        font-size: 20px;
     }
 }
