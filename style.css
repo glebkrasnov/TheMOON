@@ -110,7 +110,8 @@ button {
 /* мобильная адаптация */
 @media (max-width: 480px) {
     .long-bg {
-        height: 8000px;
+        height: 6000px;
     }
 }
+
 
