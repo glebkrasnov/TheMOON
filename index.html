@@ -33,11 +33,10 @@
 
     <!-- КОНЕЦ -->
     <div class="final">
-        <a href="https://example.com"
-           class="final-btn hidden"
-           id="finalBtn">
-            Это тебе!
-        </a>
+        <div class="final-text hidden" id="finalText">
+            Сканируй карту<br>
+            <strong>«Плюшевое Яблоко!»</strong>
+        </div>
     </div>
 
 </section>
@@ -57,16 +56,16 @@ function checkPassword() {
     }
 }
 
-// показать кнопку в конце
-const btn = document.getElementById('finalBtn');
+// показать надпись в конце
+const text = document.getElementById('finalText');
 
 window.addEventListener('scroll', () => {
     const bottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 30;
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 40;
 
     if (bottom) {
-        btn.classList.remove('hidden');
-        btn.classList.add('show');
+        text.classList.remove('hidden');
+        text.classList.add('show');
     }
 });
 </script>
