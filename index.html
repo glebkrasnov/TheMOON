@@ -27,18 +27,7 @@
 
 <!-- ОСНОВНОЙ КОНТЕНТ -->
 <section class="content hidden" id="content">
-
-    <!-- ДЛИННАЯ КАРТИНКА -->
     <img src="long.jpg" alt="Для тебя" class="long-image">
-
-    <!-- КОНЕЦ -->
-    <div class="final">
-        <div class="final-text hidden" id="finalText">
-            Сканируй карту<br>
-            <strong>«Плюшевое Яблоко!»</strong>
-        </div>
-    </div>
-
 </section>
 
 <script>
@@ -55,19 +44,6 @@ function checkPassword() {
         error.textContent = "Неверный пароль";
     }
 }
-
-// показать надпись в конце
-const text = document.getElementById('finalText');
-
-window.addEventListener('scroll', () => {
-    const bottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 40;
-
-    if (bottom) {
-        text.classList.remove('hidden');
-        text.classList.add('show');
-    }
-});
 </script>
 
 </body>
