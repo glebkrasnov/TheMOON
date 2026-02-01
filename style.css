@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 
-    background: url("myphoto.jpg") no-repeat center center fixed;
+    background: url("gift.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -128,3 +128,4 @@ button:hover,
         max-height: 85vh;
     }
 }
+
