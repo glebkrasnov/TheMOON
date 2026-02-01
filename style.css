@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px;
+    padding: 12px;
 }
 
 .login-screen::after {
@@ -33,31 +33,31 @@ body {
     z-index: 1;
 
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;          /* 🔥 УМЕНЬШЕНО */
     background: rgba(255,255,255,0.95);
-    padding: 16px 16px 14px;
-    border-radius: 14px;
+    padding: 12px;             /* 🔥 МЕНЬШЕ */
+    border-radius: 12px;
 
     display: flex;
     flex-direction: column;
-    gap: 8px; /* 🔥 компактно */
+    gap: 6px;                  /* 🔥 КОМПАКТНО */
 }
 
 h2 {
     margin: 0;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;           /* 🔥 МЕНЬШЕ */
 }
 
 input {
     width: 100%;
-    padding: 12px;
+    padding: 10px;             /* 🔥 МЕНЬШЕ */
     font-size: 16px;
 }
 
 button {
-    padding: 12px;
-    font-size: 16px;
+    padding: 10px;             /* 🔥 МЕНЬШЕ */
+    font-size: 15px;
     border: none;
     border-radius: 8px;
     background: #18171C;
@@ -67,8 +67,8 @@ button {
 .error {
     color: red;
     text-align: center;
-    min-height: 16px;
-    font-size: 14px;
+    min-height: 14px;
+    font-size: 13px;
 }
 
 .hidden {
@@ -81,50 +81,9 @@ button {
     background: #000;
 }
 
-/* длинная картинка */
+/* ДЛИННАЯ КАРТИНКА */
 .long-image {
     width: 100%;
     height: auto;
     display: block;
 }
-
-/* конец страницы */
-.final {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* текст в конце */
-.final-text {
-    text-align: center;
-    font-size: 22px;
-    line-height: 1.4;
-    color: #f6c1d1; /* нежно-розовый */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.6s ease;
-}
-
-.final-text strong {
-    font-weight: 600;
-}
-
-/* появление */
-.final-text.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* мобильная адаптация */
-@media (max-width: 480px) {
-    .login-box {
-        max-width: 300px;
-    }
-
-    .final-text {
-        font-size: 20px;
-    }
-}
-
