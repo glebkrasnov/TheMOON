@@ -33,15 +33,19 @@ body {
     z-index: 1;
 
     width: 100%;
-    max-width: 280px;          /* 🔥 УМЕНЬШЕНО */
+    max-width: 280px;
     background: rgba(255,255,255,0.95);
-    padding: 12px;             /* 🔥 МЕНЬШЕ */
+
+    /* 🔥 ВАЖНО: меньше снизу */
+    padding: 12px 12px 6px;
+
     border-radius: 12px;
 
     display: flex;
     flex-direction: column;
-    gap: 6px;                  /* 🔥 КОМПАКТНО */
+    gap: 6px;
 }
+
 
 h2 {
     margin: 0;
@@ -87,3 +91,4 @@ button {
     height: auto;
     display: block;
 }
+
