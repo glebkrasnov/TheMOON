@@ -3,9 +3,17 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 
-    /* background */
-    background: url("gift.jpg") no-repeat center center fixed;
+    background: url("myphoto.jpg") no-repeat center center fixed;
     background-size: cover;
+}
+
+/* затемнение фона */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: -1;
 }
 
 /* Центр страницы */
@@ -21,13 +29,8 @@ body {
     width: 100%;
     max-width: 380px;
     padding: 16px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255,255,255,0.95);
     border-radius: 12px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
     box-sizing: border-box;
 }
 
@@ -37,7 +40,7 @@ h2 {
     text-align: center;
 }
 
-/* Input без зума */
+/* Input */
 input {
     width: 100%;
     padding: 12px;
@@ -45,63 +48,25 @@ input {
     box-sizing: border-box;
 }
 
-/* Все кнопки */
+/* Кнопки */
 button,
 .gift-btn {
-    display: block;
     width: 100%;
     padding: 14px;
     font-size: 16px;
-
     border-radius: 8px;
     border: none;
-    cursor: pointer;
-
     background: #18171C;
     color: #fff;
-    text-decoration: none;
     text-align: center;
-
+    cursor: pointer;
+    text-decoration: none;
     box-sizing: border-box;
 }
 
-/* Hover */
 button:hover,
 .gift-btn:hover {
     background: #A5A5A5;
-}
-
-/* Анимация появления кнопок */
-#content:not(.hidden) button,
-#content:not(.hidden) .gift-btn {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.5s ease forwards;
-}
-
-#content:not(.hidden) button:nth-of-type(1) { animation-delay: 0.05s; }
-#content:not(.hidden) button:nth-of-type(2) { animation-delay: 0.15s; }
-#content:not(.hidden) a:nth-of-type(1) { animation-delay: 0.25s; }
-#content:not(.hidden) a:nth-of-type(2) { animation-delay: 0.35s; }
-#content:not(.hidden) button:nth-of-type(3) { animation-delay: 0.45s; }
-#content:not(.hidden) a:nth-of-type(4) { animation-delay: 0.55s; }
-
-/* Рамка с прокруткой */
-.congrats-box {
-    max-height: 50vh;
-    overflow-y: auto;
-    padding: 14px;
-    border: 2px solid #18171C;
-    border-radius: 10px;
-    font-size: 15px;
-    line-height: 1.5;
-    text-align: left;
-    background: #fff;
-}
-
-/* Центрированный текст */
-.center-text {
-    text-align: center;
 }
 
 /* Ошибка */
@@ -110,31 +75,56 @@ button:hover,
     text-align: center;
 }
 
-/* Скрытые блоки */
+/* Скрытые */
 .hidden {
     display: none;
 }
 
-/* Анимация */
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ===== СВИТОК ===== */
+
+.scroll-container {
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Плавное затемнение сверху */
+.fade-top {
+    position: sticky;
+    top: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+    z-index: 2;
+}
+
+/* Длинная картинка */
+.long-image {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* Кнопка в конце */
+.gift-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+}
+
+/* Появление кнопки */
+.gift-btn.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Мобильная адаптация */
 @media (max-width: 480px) {
     .container {
         max-width: 95%;
-        padding: 14px;
     }
 
-    .congrats-box {
-        max-height: 55vh;
-        font-size: 15px;
+    .scroll-container {
+        max-height: 85vh;
     }
 }
-
-
-
