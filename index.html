@@ -7,7 +7,7 @@
 
     <title>The M O O N</title>
 
-    <!-- ИКОНКА ДЛЯ iPHONE -->
+    <!-- ИКОНКА -->
     <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
 
     <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
@@ -29,14 +29,17 @@
         <p id="error" class="error"></p>
     </div>
 
-    <!-- САЙТ В ОТПУСКЕ -->
-    <div class="container hidden" id="vacation">
-        <h2>🌚 Сайт находится в отпуске</h2>
+    <!-- КОНТЕНТ ПОСЛЕ ВХОДА -->
+    <div class="container hidden" id="content">
+        <h2>🎁 Твой подарок</h2>
 
-        <div class="congrats-box center-text">
-            Все не использованные сертификаты были скрыты.<br><br>
-            Если вдруг понадобятся, напиши админу
-        </div>
+        <!-- КАРТИНКА -->
+        <img src="gift.jpg" alt="Подарок" style="width:100%; border-radius:10px;">
+
+        <!-- КНОПКА -->
+        <a href="https://yandex.ru/pogoda/ru/nizhny-novgorod?lat=56.202014&lon=43.810565" class="gift-btn">
+            Получить подарок
+        </a>
     </div>
 
 </div>
@@ -48,11 +51,7 @@ function checkPassword() {
 
     if (pass === "2589") {
         document.getElementById('login').classList.add('hidden');
-
-        const vacation = document.getElementById('vacation');
-        vacation.classList.remove('hidden');
-        void vacation.offsetWidth;
-
+        document.getElementById('content').classList.remove('hidden');
         error.textContent = "";
     } else {
         error.textContent = "Неверный пароль";
