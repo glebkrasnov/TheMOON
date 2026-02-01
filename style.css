@@ -1,73 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #000;
 }
 
-/* ===== ВХОД ===== */
+/* ===== ЭКРАН ВХОДА ===== */
 
-.page {
+.login-screen {
     min-height: 100vh;
+    background: url("gift.jpg") no-repeat center center;
+    background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background: url("gift.jpg") no-repeat center center fixed;
-    background-size: cover;
+    padding: 20px;
 }
 
-.page::before {
+.login-screen::after {
     content: "";
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.45);
-    z-index: -1;
 }
 
-.container {
-    width: 90%;
-    max-width: 380px;
-    padding: 16px;
+.login-box {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 360px;
     background: rgba(255,255,255,0.95);
-    border-radius: 12px;
-    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 h2 {
+    margin: 0;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 input {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     font-size: 16px;
 }
 
 button {
-    width: 100%;
     padding: 14px;
-    margin-top: 10px;
-    border-radius: 8px;
+    font-size: 16px;
     border: none;
+    border-radius: 8px;
     background: #18171C;
     color: #fff;
-    font-size: 16px;
 }
 
 .error {
     color: red;
     text-align: center;
+    min-height: 18px;
 }
 
 .hidden {
     display: none;
 }
 
-/* ===== СКРОЛЛ С КАРТИНКОЙ ===== */
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 
-.scroll-mode {
-    overflow-y: auto;
+.content {
+    background: #000;
 }
 
 /* длинная картинка */
@@ -78,30 +87,27 @@ button {
 }
 
 /* конец страницы */
-.final-section {
+.final {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
 }
 
 /* кнопка */
 .final-btn {
-    padding: 16px 36px;
+    padding: 16px 40px;
     font-size: 18px;
-    border-radius: 30px;
-    background: #f2b6c8; /* нежно-розовый */
-    color: #3a1f2b;
+    border-radius: 999px;
+    background: #f6c1d1;
+    color: #40202b;
     text-decoration: none;
-    font-weight: 500;
 
     opacity: 0;
     transform: translateY(20px);
     transition: 0.6s ease;
 }
 
-/* появление */
 .final-btn.show {
     opacity: 1;
     transform: translateY(0);
@@ -109,9 +115,7 @@ button {
 
 /* мобильная адаптация */
 @media (max-width: 480px) {
-    .long-bg {
-        height: 6000px;
+    .login-box {
+        padding: 16px;
     }
 }
-
-
