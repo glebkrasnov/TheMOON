@@ -16,23 +16,25 @@
 </head>
 <body>
 
-<div class="page">
-
-    <!-- ВХОД -->
-    <div class="container" id="login">
+<!-- ВХОД -->
+<div class="page" id="login">
+    <div class="container">
         <h2>Введите пароль</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
         <p id="error" class="error"></p>
     </div>
+</div>
 
-    <!-- СВИТОК -->
-    <div class="container hidden scroll-container" id="content">
-        <div class="fade-top"></div>
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<div id="content" class="hidden">
 
-        <img src="long.jpg" alt="Для тебя" class="long-image">
+    <!-- ДЛИННАЯ КАРТИНКА КАК ФОН -->
+    <div class="long-bg"></div>
 
-        <a href="https://example.com" class="gift-btn hidden" id="finalBtn">
+    <!-- КНОПКА В КОНЦЕ -->
+    <div class="final-section">
+        <a href="https://example.com" class="final-btn hidden" id="finalBtn">
             Это тебе!
         </a>
     </div>
@@ -47,19 +49,19 @@ function checkPassword() {
     if (pass === "2589") {
         document.getElementById('login').classList.add('hidden');
         document.getElementById('content').classList.remove('hidden');
+        document.body.classList.add('scroll-mode');
         error.textContent = "";
     } else {
         error.textContent = "Неверный пароль";
     }
 }
 
-// появление кнопки в конце скролла
-const container = document.getElementById('content');
+// показать кнопку в конце страницы
 const btn = document.getElementById('finalBtn');
 
-container.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
     const bottomReached =
-        container.scrollTop + container.clientHeight >= container.scrollHeight - 20;
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
 
     if (bottomReached) {
         btn.classList.remove('hidden');
