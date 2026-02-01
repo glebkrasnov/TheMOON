@@ -7,14 +7,11 @@
 
     <title>The M O O N</title>
 
-    <!-- ИКОНКА -->
     <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
 
-    <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- СТИЛИ -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,16 +26,14 @@
         <p id="error" class="error"></p>
     </div>
 
-    <!-- КОНТЕНТ ПОСЛЕ ВХОДА -->
-    <div class="container hidden" id="content">
-        <h2>🎁 Твой подарок</h2>
+    <!-- СВИТОК -->
+    <div class="container hidden scroll-container" id="content">
+        <div class="fade-top"></div>
 
-        <!-- КАРТИНКА -->
-        <img src="gift.jpg" alt="Подарок" style="width:100%; border-radius:10px;">
+        <img src="long.jpg" alt="Для тебя" class="long-image">
 
-        <!-- КНОПКА -->
-        <a href="https://yandex.ru/pogoda/ru/nizhny-novgorod?lat=56.202014&lon=43.810565" class="gift-btn">
-            Получить подарок
+        <a href="https://example.com" class="gift-btn hidden" id="finalBtn">
+            Это тебе!
         </a>
     </div>
 
@@ -57,6 +52,20 @@ function checkPassword() {
         error.textContent = "Неверный пароль";
     }
 }
+
+// появление кнопки в конце скролла
+const container = document.getElementById('content');
+const btn = document.getElementById('finalBtn');
+
+container.addEventListener('scroll', () => {
+    const bottomReached =
+        container.scrollTop + container.clientHeight >= container.scrollHeight - 20;
+
+    if (bottomReached) {
+        btn.classList.remove('hidden');
+        btn.classList.add('show');
+    }
+});
 </script>
 
 </body>
