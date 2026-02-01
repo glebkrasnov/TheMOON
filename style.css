@@ -70,12 +70,11 @@ button {
     overflow-y: auto;
 }
 
-/* длинная картинка как фон */
-.long-bg {
+/* длинная картинка */
+.long-image {
     width: 100%;
-    height: 8000px; /* МОЖНО МЕНЯТЬ */
-    background: url("long.jpg") no-repeat top center;
-    background-size: cover;
+    height: auto;
+    display: block;
 }
 
 /* конец страницы */
@@ -114,3 +113,4 @@ button {
         height: 8000px;
     }
 }
+
