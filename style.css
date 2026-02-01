@@ -1,14 +1,22 @@
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
+    background: #000;
+}
+
+/* ===== ВХОД ===== */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background: url("gift.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
-/* затемнение фона */
-body::before {
+.page::before {
     content: "";
     position: fixed;
     inset: 0;
@@ -16,17 +24,8 @@ body::before {
     z-index: -1;
 }
 
-/* Центр страницы */
-.page {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Контейнер */
 .container {
-    width: 100%;
+    width: 90%;
     max-width: 380px;
     padding: 16px;
     background: rgba(255,255,255,0.95);
@@ -34,98 +33,84 @@ body::before {
     box-sizing: border-box;
 }
 
-/* Заголовки */
 h2 {
-    margin: 0 0 10px 0;
     text-align: center;
+    margin-bottom: 10px;
 }
 
-/* Input */
 input {
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    box-sizing: border-box;
 }
 
-/* Кнопки */
-button,
-.gift-btn {
+button {
     width: 100%;
     padding: 14px;
-    font-size: 16px;
+    margin-top: 10px;
     border-radius: 8px;
     border: none;
     background: #18171C;
     color: #fff;
-    text-align: center;
-    cursor: pointer;
-    text-decoration: none;
-    box-sizing: border-box;
+    font-size: 16px;
 }
 
-button:hover,
-.gift-btn:hover {
-    background: #A5A5A5;
-}
-
-/* Ошибка */
 .error {
     color: red;
     text-align: center;
 }
 
-/* Скрытые */
 .hidden {
     display: none;
 }
 
-/* ===== СВИТОК ===== */
+/* ===== СКРОЛЛ С КАРТИНКОЙ ===== */
 
-.scroll-container {
-    max-height: 80vh;
+.scroll-mode {
     overflow-y: auto;
-    position: relative;
 }
 
-/* Плавное затемнение сверху */
-.fade-top {
-    position: sticky;
-    top: 0;
-    height: 60px;
-    background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
-    z-index: 2;
-}
-
-/* Длинная картинка */
-.long-image {
+/* длинная картинка как фон */
+.long-bg {
     width: 100%;
-    display: block;
-    border-radius: 10px;
-    margin-bottom: 30px;
+    height: 8000px; /* МОЖНО МЕНЯТЬ */
+    background: url("long.jpg") no-repeat top center;
+    background-size: cover;
 }
 
-/* Кнопка в конце */
-.gift-btn {
+/* конец страницы */
+.final-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+/* кнопка */
+.final-btn {
+    padding: 16px 36px;
+    font-size: 18px;
+    border-radius: 30px;
+    background: #f2b6c8; /* нежно-розовый */
+    color: #3a1f2b;
+    text-decoration: none;
+    font-weight: 500;
+
     opacity: 0;
     transform: translateY(20px);
     transition: 0.6s ease;
 }
 
-/* Появление кнопки */
-.gift-btn.show {
+/* появление */
+.final-btn.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Мобильная адаптация */
+/* мобильная адаптация */
 @media (max-width: 480px) {
-    .container {
-        max-width: 95%;
-    }
-
-    .scroll-container {
-        max-height: 85vh;
+    .long-bg {
+        height: 8000px;
     }
 }
-
