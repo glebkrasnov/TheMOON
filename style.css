@@ -12,7 +12,7 @@ body {
 
 .login-screen {
     min-height: 100vh;
-    background: url("myphoto.jpg") no-repeat center center;
+    background: url("gift.jpg") no-repeat center center;
     background-size: cover;
 
     display: flex;
@@ -127,3 +127,4 @@ button {
         font-size: 20px;
     }
 }
+
