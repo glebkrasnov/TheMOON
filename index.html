@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>14.02</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,58 +20,59 @@
 
     <!-- ОТКРЫТКА -->
     <div class="card hidden" id="card">
-        <div class="card-inner" id="cardInner">
 
-            <!-- Лицевая сторона -->
-            <div class="card-face card-front">
-                <div class="heart">❤️</div>
-                <div class="tap-text">Нажми</div>
-            </div>
+        <!-- ОБЛОЖКА -->
+        <div class="card-cover" id="cover">
+            <!-- 👉 МЕНЯЕШЬ ДИЗАЙН ОБЛОЖКИ -->
+            <div class="heart">❤️</div>
+            <div class="tap-text">Нажми</div>
+        </div>
 
-            <!-- Обратная сторона -->
-            <div class="card-face card-back">
-                <div class="message" id="m1">Я хотел тебе кое-что сказать…</div>
-                <div class="message" id="m2">Мне очень повезло, что у меня есть ты</div>
-                <div class="message big" id="m3">Люблю тебя</div>
+        <!-- ВНУТРЕННЯЯ СТОРОНА -->
+        <div class="card-inside">
+            <div class="message" id="m1">Я хотел тебе кое-что сказать…</div>
+            <div class="message" id="m2">Мне очень повезло, что у меня есть ты</div>
+            <div class="message big" id="m3">Люблю тебя</div>
 
-                <!-- 🔥 ЗДЕСЬ МЕНЯЕШЬ ФОТО -->
-                <img src="photo.jpg" class="photo" id="photo" alt="Мы">
+            <!-- 👉 ВАШЕ ФОТО -->
+            <img src="photo.jpg" class="photo" id="photo">
 
-                <div class="date" id="date">14.02</div>
-            </div>
-
+            <div class="date" id="date">14.02</div>
         </div>
     </div>
+
+    <!-- КНОПКА В КОНЦЕ -->
+    <a href="https://example.com" class="gift-btn hidden" id="giftBtn">
+        Это тебе!
+    </a>
 
 </div>
 
 <script>
 function checkPassword() {
-    const pass = document.getElementById('password').value;
-    const error = document.getElementById('error');
-
-    if (pass === "2589") {
-        document.getElementById('login').classList.add('hidden');
-        document.getElementById('card').classList.remove('hidden');
-        error.textContent = "";
+    if (document.getElementById('password').value === "2589") {
+        login.classList.add('hidden');
+        card.classList.remove('hidden');
     } else {
         error.textContent = "Неверный пароль";
     }
 }
 
-const card = document.getElementById('cardInner');
-let flipped = false;
+const cover = document.getElementById('cover');
+let opened = false;
 
-card?.addEventListener('click', () => {
-    if (flipped) return;
-    flipped = true;
-    card.classList.add('flipped');
+cover.addEventListener('click', () => {
+    if (opened) return;
+    opened = true;
 
-    setTimeout(() => show('m1'), 800);
-    setTimeout(() => show('m2'), 2300);
-    setTimeout(() => show('m3'), 3800);
-    setTimeout(() => show('photo'), 5200);
-    setTimeout(() => show('date'), 6500);
+    cover.classList.add('open');
+
+    setTimeout(() => show('m1'), 600);
+    setTimeout(() => show('m2'), 2000);
+    setTimeout(() => show('m3'), 3500);
+    setTimeout(() => show('photo'), 4800);
+    setTimeout(() => show('date'), 6000);
+    setTimeout(() => giftBtn.classList.remove('hidden'), 7200);
 });
 
 function show(id) {
