@@ -43,12 +43,12 @@
         </div>
 
         <div id="media" class="hidden">
-            <video src="IMG_29009.mp4" autoplay muted loop playsinline preload="auto"></video>
+            <video src="IMG_2909.mp4" autoplay muted loop playsinline preload="auto"></video>
         </div>
 
     </div>
 
-    <!-- Кнопка теперь вне контейнера -->
+    <!-- Кнопка под контейнером -->
     <a href="https://lenta.com/gc/h5ig9Mo8hsc8wg3LrMvvYf/" class="gift-btn hidden" id="goBtn">
         👉 Это тебе! 👈
     </a>
@@ -90,29 +90,33 @@ function startSequence() {
     welcome.classList.remove("hidden");
     setTimeout(() => welcome.classList.add("fade-out"), 2800);
 
-    // Появление контейнера и первой фразы одновременно
+    // Появление контейнера + первой фразы
     setTimeout(() => {
         welcome.classList.add("hidden");
         box.classList.remove("hidden");
-        love1.classList.remove("hidden"); // появляется сразу с контейнером
+        love1.classList.remove("hidden");
+        love1.classList.add("fade-in");
     }, 3800);
 
-    // Вторая фраза
-    setTimeout(() => love2.classList.remove("hidden"), 6000);
+    // Плавное появление второй фразы
+    setTimeout(() => {
+        love2.classList.remove("hidden");
+        love2.classList.add("fade-in");
+    }, 5000);
 
-    // Видео
-    setTimeout(() => media.classList.remove("hidden"), 8200);
+    // Плавное появление видео
+    setTimeout(() => {
+        media.classList.remove("hidden");
+        media.classList.add("fade-in");
+    }, 6200);
 
-    // Кнопка появляется под контейнером
-    setTimeout(() => btn.classList.remove("hidden"), 12500);
+    // Плавное появление кнопки
+    setTimeout(() => {
+        btn.classList.remove("hidden");
+        btn.classList.add("fade-in");
+    }, 7500);
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
