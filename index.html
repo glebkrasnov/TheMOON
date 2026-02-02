@@ -25,12 +25,14 @@
         <p id="error" class="error"></p>
     </div>
 
-    <!-- КОНТЕНТ -->
-    <div class="content hidden" id="content">
+    <!-- ПРИВЕТСТВИЕ -->
+    <div id="welcome" class="welcome hidden">
+        <span>Добро пожаловать</span><br>
+        <span class="name">Екатерина!</span>
+    </div>
 
-        <div id="welcome" class="text big hidden">
-            Добро пожаловать, Екатерина!
-        </div>
+    <!-- БЕЛЫЙ КОНТЕЙНЕР -->
+    <div id="contentBox" class="content-box hidden">
 
         <div id="love1" class="text hidden">
             С днём всех влюблённых 🥰
@@ -57,7 +59,7 @@ const PASSWORD = "2589";
 
 window.onload = () => {
     if (localStorage.getItem("auth") === "true") {
-        showContent();
+        startSequence();
     }
 };
 
@@ -67,56 +69,46 @@ function checkPassword() {
 
     if (pass === PASSWORD) {
         localStorage.setItem("auth", "true");
-        showContent();
+        startSequence();
     } else {
         error.textContent = "Неверный пароль";
     }
 }
 
-function showContent() {
+function startSequence() {
     document.getElementById("login").classList.add("hidden");
-    document.getElementById("content").classList.remove("hidden");
 
     const welcome = document.getElementById("welcome");
+    const box = document.getElementById("contentBox");
     const love1 = document.getElementById("love1");
     const love2 = document.getElementById("love2");
     const media = document.getElementById("media");
     const btn = document.getElementById("goBtn");
 
-    // Добро пожаловать
-    setTimeout(() => welcome.classList.remove("hidden"), 300);
-    setTimeout(() => welcome.classList.add("fade-out"), 2800);
+    // Приветствие
+    welcome.classList.remove("hidden");
 
-    // С днём влюблённых
+    setTimeout(() => {
+        welcome.classList.add("fade-out");
+    }, 2800);
+
+    // Появляется белый контейнер
     setTimeout(() => {
         welcome.classList.add("hidden");
-        love1.classList.remove("hidden");
+        box.classList.remove("hidden");
     }, 3800);
 
-    // Вторая строка
-    setTimeout(() => {
-        love2.classList.remove("hidden");
-    }, 5200);
+    // Фразы
+    setTimeout(() => love1.classList.remove("hidden"), 4200);
+    setTimeout(() => love2.classList.remove("hidden"), 5600);
 
     // Видео
-    setTimeout(() => {
-        love1.classList.add("fade-out");
-        love2.classList.add("fade-out");
-    }, 7500);
-
-    setTimeout(() => {
-        love1.classList.add("hidden");
-        love2.classList.add("hidden");
-        media.classList.remove("hidden");
-    }, 8500);
+    setTimeout(() => media.classList.remove("hidden"), 7800);
 
     // Кнопка
-    setTimeout(() => {
-        btn.classList.remove("hidden");
-    }, 10500);
+    setTimeout(() => btn.classList.remove("hidden"), 10000);
 }
 </script>
 
 </body>
 </html>
-
