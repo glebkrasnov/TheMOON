@@ -13,12 +13,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* чтобы кнопка под контейнером */
-    position: relative;
+    flex-direction: column; /* чтобы кнопка была под контейнером */
 }
 
 /* Экран входа */
-#login.container {
+.container {
     width: 100%;
     max-width: 360px;
     padding: 16px;
@@ -28,14 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-
-    /* Добавлено центрирование по вертикали */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
-
 
 input {
     padding: 12px;
@@ -98,7 +90,6 @@ button:hover,
 /* Текст */
 .text {
     opacity: 0;
-    animation: fadeIn 1s forwards;
 }
 
 .text.small {
@@ -111,8 +102,10 @@ button:hover,
     margin-top: 18px;
     position: relative;
     z-index: 1;
+    opacity: 0;
 }
 
+/* Видео */
 #media video {
     width: 100%;
     border-radius: 12px;
@@ -124,10 +117,13 @@ button:hover,
     position: relative;
     z-index: 2;
     opacity: 0;
+}
+
+/* Плавное появление */
+.fade-in {
     animation: fadeIn 1s forwards;
 }
 
-/* Анимации */
 @keyframes fadeIn {
     to { opacity: 1; }
 }
@@ -154,4 +150,3 @@ button:hover,
         font-size: 28px;
     }
 }
-
