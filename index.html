@@ -19,7 +19,7 @@
 
     <!-- ВХОД -->
     <div class="container" id="login">
-        <h2>Введите пароль</h2>
+        <h2 class="center-text">Введите пароль</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
         <p id="error" class="error"></p>
@@ -77,14 +77,16 @@ function checkPassword() {
 }
 
 function startSequence() {
-    document.getElementById("login").classList.add("hidden");
-
+    const login = document.getElementById("login");
     const welcome = document.getElementById("welcome");
     const box = document.getElementById("contentBox");
     const love1 = document.getElementById("love1");
     const love2 = document.getElementById("love2");
     const media = document.getElementById("media");
     const btn = document.getElementById("goBtn");
+
+    // Скрываем поле с паролем полностью
+    login.style.display = "none";
 
     // Появление приветствия
     welcome.classList.remove("hidden");
@@ -120,4 +122,3 @@ function startSequence() {
 
 </body>
 </html>
-
