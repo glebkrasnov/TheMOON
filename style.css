@@ -56,39 +56,48 @@ button:hover,
     text-align: center;
 }
 
-/* Основной контент */
-.content {
+/* Приветствие */
+.welcome {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 100%;
-    max-width: 90%;
     text-align: center;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-/* Текст */
+.welcome .name {
+    font-size: 30px;
+}
+
+/* Белый контейнер */
+.content-box {
+    background: rgba(255,255,255,0.95);
+    padding: 22px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+}
+
+/* Тексты */
 .text {
     opacity: 0;
     animation: fadeIn 1.2s forwards;
-    white-space: nowrap; /* ОДНА СТРОКА */
-}
-
-.text.big {
-    font-size: 24px;
-    font-weight: bold;
 }
 
 .text.small {
-    font-size: 17px;
-    margin-top: 14px;
+    font-size: 16px;
+    margin-top: 12px;
 }
 
 /* Видео */
+#media {
+    margin-top: 18px;
+}
+
 #media video {
     width: 100%;
-    max-width: 360px;
     border-radius: 12px;
 }
 
@@ -111,7 +120,11 @@ button:hover,
 
 /* Мобилки */
 @media (max-width: 480px) {
-    .text.big {
-        font-size: 22px;
+    .welcome {
+        font-size: 24px;
+    }
+
+    .welcome .name {
+        font-size: 28px;
     }
 }
