@@ -65,10 +65,21 @@ button {
 }
 
 /* ОБЛОЖКА — ОТКРЫВАЕТСЯ КАК КНИГА */
-..card-cover {
-    background: url("background.jpg") center / cover no-repeat;
-}
+.card-cover {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    z-index: 3;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transform-origin: left center;
+    transition: transform 1.2s ease;
+    border-radius: 18px;
+}
 
 .card-cover.open {
     transform: rotateY(-160deg);
@@ -85,10 +96,19 @@ button {
 }
 
 /* ВНУТРЕННЯЯ СТОРОНА */
-..card-inside {
-    background: url("background.jpg") center / cover no-repeat;
-}
+.card-inside {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
 
 .message {
     opacity: 0;
@@ -145,4 +165,3 @@ button {
     50% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
-
