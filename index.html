@@ -2,33 +2,48 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>The M O O N</title>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>14.02</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ЭКРАН ВХОДА -->
-<section class="login-screen" id="login">
-    <div class="login-box">
+<div class="page">
+
+    <!-- ВХОД -->
+    <div class="login-box" id="login">
         <h2>Введите пароль</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
-        <p class="error" id="error"></p>
+        <p id="error" class="error"></p>
     </div>
-</section>
 
-<!-- ОСНОВНОЙ КОНТЕНТ -->
-<section class="content hidden" id="content">
-    <img src="long.jpg" alt="Для тебя" class="long-image">
-</section>
+    <!-- ОТКРЫТКА -->
+    <div class="card hidden" id="card">
+        <div class="card-inner" id="cardInner">
+
+            <!-- Лицевая сторона -->
+            <div class="card-face card-front">
+                <div class="heart">❤️</div>
+                <div class="tap-text">Нажми</div>
+            </div>
+
+            <!-- Обратная сторона -->
+            <div class="card-face card-back">
+                <div class="message" id="m1">Я хотел тебе кое-что сказать…</div>
+                <div class="message" id="m2">Мне очень повезло, что у меня есть ты</div>
+                <div class="message big" id="m3">Люблю тебя</div>
+
+                <!-- 🔥 ЗДЕСЬ МЕНЯЕШЬ ФОТО -->
+                <img src="photo.jpg" class="photo" id="photo" alt="Мы">
+
+                <div class="date" id="date">14.02</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 <script>
 function checkPassword() {
@@ -37,12 +52,30 @@ function checkPassword() {
 
     if (pass === "2589") {
         document.getElementById('login').classList.add('hidden');
-        document.getElementById('content').classList.remove('hidden');
+        document.getElementById('card').classList.remove('hidden');
         error.textContent = "";
-        window.scrollTo(0, 0);
     } else {
         error.textContent = "Неверный пароль";
     }
+}
+
+const card = document.getElementById('cardInner');
+let flipped = false;
+
+card?.addEventListener('click', () => {
+    if (flipped) return;
+    flipped = true;
+    card.classList.add('flipped');
+
+    setTimeout(() => show('m1'), 800);
+    setTimeout(() => show('m2'), 2300);
+    setTimeout(() => show('m3'), 3800);
+    setTimeout(() => show('photo'), 5200);
+    setTimeout(() => show('date'), 6500);
+});
+
+function show(id) {
+    document.getElementById(id).classList.add('show');
 }
 </script>
 
