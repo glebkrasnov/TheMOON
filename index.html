@@ -1,65 +1,78 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <title>Access</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+    }
 
-    <title>The M O O N</title>
+    #login {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <!-- ИКОНКА ДЛЯ iPHONE -->
-    <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
 
-    <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <!-- СТИЛИ -->
-    <link rel="stylesheet" href="style.css">
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-<div class="page">
+  <div id="login">
+    <h2>Введите пароль</h2>
+    <input type="password" id="password">
+    <button onclick="checkPassword()">OK</button>
+    <p id="error" style="color:red;"></p>
+  </div>
 
-    <!-- ВХОД -->
-    <div class="container" id="login">
-        <h2>Введите пароль</h2>
-        <input type="password" id="password" placeholder="Пароль">
-        <button onclick="checkPassword()">Войти</button>
-        <p id="error" class="error"></p>
-    </div>
+  <video id="video" autoplay controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
 
-    <!-- САЙТ В ОТПУСКЕ -->
-    <div class="container hidden" id="vacation">
-        <h2>🌚 Сайт находится в отпуске</h2>
+  <script>
+    const correctPassword = "1234"; // ← ЗАМЕНИ
 
-        <div class="congrats-box center-text">
-            Все не использованные сертификаты были скрыты.<br><br>
-            Если вдруг понадобятся, напиши админу
-        </div>
-    </div>
+    const login = document.getElementById("login");
+    const video = document.getElementById("video");
 
-</div>
-
-<script>
-function checkPassword() {
-    const pass = document.getElementById('password').value;
-    const error = document.getElementById('error');
-
-    if (pass === "2589") {
-        document.getElementById('login').classList.add('hidden');
-
-        const vacation = document.getElementById('vacation');
-        vacation.classList.remove('hidden');
-        void vacation.offsetWidth;
-
-        error.textContent = "";
-    } else {
-        error.textContent = "Неверный пароль";
+    // если доступ уже есть — показываем видео сразу
+    if (localStorage.getItem("accessGranted") === "true") {
+      login.style.display = "none";
+      video.style.display = "block";
     }
-}
-</script>
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (input === correctPassword) {
+        localStorage.setItem("accessGranted", "true");
+        login.style.display = "none";
+        video.style.display = "block";
+        video.play();
+      } else {
+        error.textContent = "Неверный пароль";
+      }
+    }
+  </script>
 
 </body>
 </html>
-
