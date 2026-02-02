@@ -103,9 +103,17 @@ button:hover,
     display: none;
 }
 
+/* Контейнер без рамки */
+.transparent {
+    background: none;
+    box-shadow: none;
+}
+
 /* Мобилки */
 @media (max-width: 480px) {
     .container {
         max-width: 95%;
     }
 }
+
+
