@@ -1,123 +1,113 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    /* LOGIN */
-    #login {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+    <title>The M O O N</title>
 
-    input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin-top: 10px;
-    }
+    <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    /* WELCOME TEXT */
-    #welcome {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 32px;
-      opacity: 0;
-      transition: opacity 2s ease;
-      pointer-events: none;
-    }
-
-    /* VIDEO */
-    video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-
-    .show {
-      opacity: 1;
-    }
-
-    .hide {
-      opacity: 0;
-    }
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- LOGIN -->
-  <div id="login">
-    <h2>Введите пароль</h2>
-    <input type="password" id="password">
-    <button onclick="checkPassword()">OK</button>
-    <p id="error" style="color:red;"></p>
-  </div>
+<div class="page">
 
-  <!-- WELCOME -->
-  <div id="welcome">Добро пожаловать, Екатерина!</div>
+    <!-- ВХОД -->
+    <div class="container" id="login">
+        <h2>Введите пароль</h2>
+        <input type="password" id="password" placeholder="Пароль">
+        <button onclick="checkPassword()">Войти</button>
+        <p id="error" class="error"></p>
+    </div>
 
-  <!-- VIDEO -->
-  <video id="video" autoplay muted playsinline>
-    <source src="video.mp4" type="video/mp4">
-  </video>
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="container hidden center-text" id="content">
 
-  <script>
-    const correctPassword = "1234"; // ← ЗАМЕНИ ПАРОЛЬ
+        <!-- Приветствие -->
+        <div id="welcome" class="welcome hidden">
+            Добро пожаловать, Екатерина!
+        </div>
 
-    const login = document.getElementById("login");
-    const welcome = document.getElementById("welcome");
-    const video = document.getElementById("video");
+        <!-- Картинка или видео -->
+        <div id="media" class="hidden">
+            <!-- КАРТИНКА -->
+            <img src="media.jpg" alt="media">
 
-    // Если доступ уже есть
-    if (localStorage.getItem("accessGranted") === "true") {
-      login.style.display = "none";
-      startSequence();
+            <!-- ИЛИ ВИДЕО (если нужно — раскомментируй) -->
+            <!--
+            <video src="media.mp4" autoplay muted playsinline></video>
+            -->
+        </div>
+
+        <!-- Кнопка -->
+        <a href="https://example.com" class="gift-btn hidden" id="goBtn">
+            Это тебе!
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+const PASSWORD = "2589";
+
+window.onload = () => {
+    if (localStorage.getItem("auth") === "true") {
+        showContent();
     }
+};
 
-    function checkPassword() {
-      const input = document.getElementById("password").value;
-      const error = document.getElementById("error");
+function checkPassword() {
+    const pass = document.getElementById('password').value;
+    const error = document.getElementById('error');
 
-      if (input === correctPassword) {
-        localStorage.setItem("accessGranted", "true");
-        login.style.display = "none";
-        startSequence();
-      } else {
+    if (pass === PASSWORD) {
+        localStorage.setItem("auth", "true");
+        showContent();
+    } else {
         error.textContent = "Неверный пароль";
-      }
     }
+}
 
-    function startSequence() {
-      // Появляется приветствие
-      welcome.classList.add("show");
+function showContent() {
+    document.getElementById('login').classList.add('hidden');
+    const content = document.getElementById('content');
+    content.classList.remove('hidden');
 
-      // Через 3 секунды — скрываем текст
-      setTimeout(() => {
-        welcome.classList.remove("show");
-      }, 3000);
+    const welcome = document.getElementById('welcome');
+    const media = document.getElementById('media');
+    const btn = document.getElementById('goBtn');
 
-      // Через 5 секунд — показываем видео
-      setTimeout(() => {
-        video.classList.add("show");
-        video.play();
-      }, 5000);
-    }
-  </script>
+    // Приветствие
+    setTimeout(() => {
+        welcome.classList.remove('hidden');
+        welcome.classList.add('fade-in');
+    }, 300);
+
+    // Убираем приветствие
+    setTimeout(() => {
+        welcome.classList.add('fade-out');
+    }, 3000);
+
+    // Показываем медиа
+    setTimeout(() => {
+        welcome.classList.add('hidden');
+        media.classList.remove('hidden');
+        media.classList.add('fade-in');
+    }, 3800);
+
+    // Кнопка
+    setTimeout(() => {
+        btn.classList.remove('hidden');
+        btn.classList.add('fade-in');
+    }, 5200);
+}
+</script>
 
 </body>
 </html>
