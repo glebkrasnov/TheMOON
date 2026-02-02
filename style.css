@@ -1,34 +1,49 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-
-    /* background */
-    background: url("gift.jpg") no-repeat center center fixed;
-    background-size: cover;
+* {
+    box-sizing: border-box;
 }
 
-/* Центр страницы */
-.page {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+}
+
+/* ===== ЭКРАН ВХОДА ===== */
+
+.login-screen {
     min-height: 100vh;
+    background: url("myphoto.jpg") no-repeat center center;
+    background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 12px;
 }
 
-/* Контейнер */
-.container {
+.login-screen::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.login-box {
+    position: relative;
+    z-index: 1;
+
     width: 100%;
-    max-width: 380px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.95);
+    max-width: 280px;
+    background: rgba(255,255,255,0.95);
+
+    /* 🔥 ВАЖНО: меньше снизу */
+    padding: 12px 12px 6px;
+
     border-radius: 12px;
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
-    box-sizing: border-box;
+    gap: 6px;
 }
 
 
@@ -76,6 +91,3 @@ button {
     height: auto;
     display: block;
 }
-
-
-
