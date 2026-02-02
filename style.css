@@ -136,4 +136,17 @@ button:hover,
     .welcome .name {
         font-size: 28px;
     }
+    .welcome {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.2;
+
+    /* ОБВОДКА */
+    -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.6);
+    text-stroke: 1.5px rgba(0, 0, 0, 0.6);
 }
+}
+
