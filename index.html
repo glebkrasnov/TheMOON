@@ -25,22 +25,27 @@
         <p id="error" class="error"></p>
     </div>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
-    <div class="container transparent hidden center-text" id="content">
+    <!-- КОНТЕНТ -->
+    <div class="content hidden" id="content">
 
-        <!-- Приветствие -->
-        <div id="welcome" class="welcome hidden">
+        <div id="welcome" class="text big hidden">
             Добро пожаловать, Екатерина!
         </div>
 
+        <div id="love1" class="text hidden">
+            С днём всех влюблённых 🥰
+        </div>
+
+        <div id="love2" class="text small hidden">
+            Я очень рад, что ты моя вторая половинка! 🤗
+        </div>
+
         <div id="media" class="hidden">
-    <video src="IMG_2909.MP4" autoplay muted loop playsinline preload="auto"></video>
-</div>
+            <video src="media.mp4" autoplay muted loop playsinline preload="auto"></video>
+        </div>
 
-
-        <!-- Кнопка -->
         <a href="https://example.com" class="gift-btn hidden" id="goBtn">
-            Это тебе!
+            Перейти
         </a>
 
     </div>
@@ -57,8 +62,8 @@ window.onload = () => {
 };
 
 function checkPassword() {
-    const pass = document.getElementById('password').value;
-    const error = document.getElementById('error');
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error");
 
     if (pass === PASSWORD) {
         localStorage.setItem("auth", "true");
@@ -69,43 +74,48 @@ function checkPassword() {
 }
 
 function showContent() {
-    document.getElementById('login').classList.add('hidden');
-    const content = document.getElementById('content');
-    content.classList.remove('hidden');
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("content").classList.remove("hidden");
 
-    const welcome = document.getElementById('welcome');
-    const media = document.getElementById('media');
-    const btn = document.getElementById('goBtn');
+    const welcome = document.getElementById("welcome");
+    const love1 = document.getElementById("love1");
+    const love2 = document.getElementById("love2");
+    const media = document.getElementById("media");
+    const btn = document.getElementById("goBtn");
 
-    // Приветствие
+    // Добро пожаловать
+    setTimeout(() => welcome.classList.remove("hidden"), 300);
+    setTimeout(() => welcome.classList.add("fade-out"), 2800);
+
+    // С днём влюблённых
     setTimeout(() => {
-        welcome.classList.remove('hidden');
-        welcome.classList.add('fade-in');
-    }, 300);
-
-    // Убираем приветствие
-    setTimeout(() => {
-        welcome.classList.add('fade-out');
-    }, 3000);
-
-    // Показываем медиа
-    setTimeout(() => {
-        welcome.classList.add('hidden');
-        media.classList.remove('hidden');
-        media.classList.add('fade-in');
+        welcome.classList.add("hidden");
+        love1.classList.remove("hidden");
     }, 3800);
+
+    // Вторая строка
+    setTimeout(() => {
+        love2.classList.remove("hidden");
+    }, 5200);
+
+    // Видео
+    setTimeout(() => {
+        love1.classList.add("fade-out");
+        love2.classList.add("fade-out");
+    }, 7500);
+
+    setTimeout(() => {
+        love1.classList.add("hidden");
+        love2.classList.add("hidden");
+        media.classList.remove("hidden");
+    }, 8500);
 
     // Кнопка
     setTimeout(() => {
-        btn.classList.remove('hidden');
-        btn.classList.add('fade-in');
-    }, 5200);
+        btn.classList.remove("hidden");
+    }, 10500);
 }
 </script>
 
 </body>
 </html>
-
-
-
-
