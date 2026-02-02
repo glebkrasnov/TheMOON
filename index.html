@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Access</title>
+  <title>Welcome</title>
   <style>
     body {
       margin: 0;
@@ -10,8 +10,10 @@
       color: white;
       font-family: Arial, sans-serif;
       height: 100vh;
+      overflow: hidden;
     }
 
+    /* LOGIN */
     #login {
       height: 100vh;
       display: flex;
@@ -26,16 +28,39 @@
       margin-top: 10px;
     }
 
+    /* WELCOME TEXT */
+    #welcome {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      opacity: 0;
+      transition: opacity 2s ease;
+      pointer-events: none;
+    }
+
+    /* VIDEO */
     video {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
-      display: none;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .hide {
+      opacity: 0;
     }
   </style>
 </head>
 <body>
 
+  <!-- LOGIN -->
   <div id="login">
     <h2>Введите пароль</h2>
     <input type="password" id="password">
@@ -43,20 +68,25 @@
     <p id="error" style="color:red;"></p>
   </div>
 
-  <video id="video" autoplay controls>
+  <!-- WELCOME -->
+  <div id="welcome">Добро пожаловать, Екатерина!</div>
+
+  <!-- VIDEO -->
+  <video id="video" autoplay muted playsinline>
     <source src="video.mp4" type="video/mp4">
   </video>
 
   <script>
-    const correctPassword = "1234"; // ← ЗАМЕНИ
+    const correctPassword = "1234"; // ← ЗАМЕНИ ПАРОЛЬ
 
     const login = document.getElementById("login");
+    const welcome = document.getElementById("welcome");
     const video = document.getElementById("video");
 
-    // если доступ уже есть — показываем видео сразу
+    // Если доступ уже есть
     if (localStorage.getItem("accessGranted") === "true") {
       login.style.display = "none";
-      video.style.display = "block";
+      startSequence();
     }
 
     function checkPassword() {
@@ -66,11 +96,26 @@
       if (input === correctPassword) {
         localStorage.setItem("accessGranted", "true");
         login.style.display = "none";
-        video.style.display = "block";
-        video.play();
+        startSequence();
       } else {
         error.textContent = "Неверный пароль";
       }
+    }
+
+    function startSequence() {
+      // Появляется приветствие
+      welcome.classList.add("show");
+
+      // Через 3 секунды — скрываем текст
+      setTimeout(() => {
+        welcome.classList.remove("show");
+      }, 3000);
+
+      // Через 5 секунд — показываем видео
+      setTimeout(() => {
+        video.classList.add("show");
+        video.play();
+      }, 5000);
     }
   </script>
 
