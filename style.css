@@ -3,12 +3,11 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 
-    /* ТВОЙ ФОН */
     background: url("gift.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
-/* Центр */
+/* Центр экрана */
 .page {
     min-height: 100vh;
     display: flex;
@@ -16,44 +15,35 @@ body {
     align-items: center;
 }
 
-/* Контейнер */
+/* Вход */
 .container {
     width: 100%;
-    max-width: 380px;
+    max-width: 360px;
     padding: 16px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255,255,255,0.95);
     border-radius: 12px;
 
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    box-sizing: border-box;
+    gap: 12px;
 }
 
-/* Заголовки */
-h2 {
-    margin: 0;
-    text-align: center;
-}
-
-/* Input */
 input {
     padding: 12px;
     font-size: 16px;
 }
 
-/* Кнопки */
 button,
 .gift-btn {
     padding: 14px;
     font-size: 16px;
     border-radius: 8px;
     border: none;
-    cursor: pointer;
     background: #18171C;
     color: #fff;
     text-decoration: none;
     text-align: center;
+    cursor: pointer;
 }
 
 button:hover,
@@ -61,59 +51,67 @@ button:hover,
     background: #A5A5A5;
 }
 
-/* Ошибка */
 .error {
     color: red;
     text-align: center;
 }
 
-/* Приветствие */
-.welcome {
-    font-size: 22px;
-    font-weight: bold;
-    opacity: 0;
+/* Основной контент */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    max-width: 90%;
+    text-align: center;
 }
 
-/* Медиа */
-#media img,
+/* Текст */
+.text {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards;
+    white-space: nowrap; /* ОДНА СТРОКА */
+}
+
+.text.big {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text.small {
+    font-size: 17px;
+    margin-top: 14px;
+}
+
+/* Видео */
 #media video {
     width: 100%;
-    border-radius: 10px;
+    max-width: 360px;
+    border-radius: 12px;
 }
 
 /* Анимации */
-.fade-in {
-    animation: fadeIn 1s forwards;
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 .fade-out {
     animation: fadeOut 1s forwards;
 }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
 @keyframes fadeOut {
     to { opacity: 0; }
 }
 
-/* Скрытые */
 .hidden {
     display: none;
 }
 
-/* Контейнер без рамки */
-.transparent {
-    background: none;
-    box-shadow: none;
-}
-
 /* Мобилки */
 @media (max-width: 480px) {
-    .container {
-        max-width: 95%;
+    .text.big {
+        font-size: 22px;
     }
 }
-
-
