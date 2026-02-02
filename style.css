@@ -11,10 +11,10 @@ body {
 .page {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    flex-direction: column; /* для кнопки */
 }
 
 /* Экран входа */
@@ -35,7 +35,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* Центрируем заголовок внутри контейнера */
+/* Центр заголовка в контейнере */
 .center-text {
     text-align: center;
 }
@@ -77,7 +77,6 @@ button:hover,
     font-weight: bold;
     line-height: 1.2;
 
-    /* Обводка */
     -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.6);
     text-stroke: 1.5px rgba(0, 0, 0, 0.6);
 }
@@ -105,9 +104,19 @@ button:hover,
     opacity: 0;
 }
 
+/* Интервалы между фразами */
+.text {
+    margin-top: 20px;
+}
+
+.text.small {
+    font-size: 16px;
+    margin-top: 24px;
+}
+
 /* Видео */
 #media {
-    margin-top: 18px;
+    margin-top: 20px;
     position: relative;
     z-index: 1;
 }
@@ -117,11 +126,10 @@ button:hover,
     border-radius: 12px;
 }
 
-/* Кнопка */
+/* Кнопка под контейнером */
 .gift-btn {
-    margin-top: 18px;
-    position: relative;
-    z-index: 2;
+    margin-top: 30px; /* расстояние от белого контейнера */
+    opacity: 0;
 }
 
 /* Плавное появление */
