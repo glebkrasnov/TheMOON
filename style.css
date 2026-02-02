@@ -15,7 +15,7 @@ body {
     align-items: center;
 }
 
-/* Вход */
+/* Экран входа */
 .container {
     width: 100%;
     max-width: 360px;
@@ -80,7 +80,7 @@ button:hover,
     width: 90%;
 }
 
-/* Тексты */
+/* Текст */
 .text {
     opacity: 0;
     animation: fadeIn 1.2s forwards;
@@ -94,11 +94,20 @@ button:hover,
 /* Видео */
 #media {
     margin-top: 18px;
+    position: relative;
+    z-index: 1;
 }
 
 #media video {
     width: 100%;
     border-radius: 12px;
+}
+
+/* Кнопка */
+.gift-btn {
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 /* Анимации */
