@@ -2,8 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>14.02</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>The M O O N</title>
+
+    <!-- ИКОНКА ДЛЯ iPHONE -->
+    <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
+
+    <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- СТИЛИ -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,39 +22,22 @@
 <div class="page">
 
     <!-- ВХОД -->
-    <div class="login-box" id="login">
+    <div class="container" id="login">
         <h2>Введите пароль</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
         <p id="error" class="error"></p>
     </div>
 
-    <!-- ОТКРЫТКА -->
-    <div class="card hidden" id="card">
+    <!-- САЙТ В ОТПУСКЕ -->
+    <div class="container hidden" id="vacation">
+        <h2>🌚 Сайт находится в отпуске</h2>
 
-        <!-- ОБЛОЖКА -->
-        <div class="card-cover" id="cover">
-            <!-- 🔧 МЕНЯЕШЬ ДИЗАЙН ОБЛОЖКИ -->
-            <div class="heart">❤️</div>
-            <div class="tap-text">Нажми</div>
-        </div>
-
-        <!-- ВНУТРЕННЯЯ СТОРОНА -->
-        <div class="card-inside">
-            <div class="message" id="m1">С днём всех влюблённых 🥰</div>
-            <div class="message" id="m2">Я очень рад, что ты моя вторая половинка! 🤗</div>
-            
-            <!-- 🔧 ВСТАВЬ СВОЁ ФОТО -->
-            <img src="photo.jpg" class="photo" id="photo" alt="Мы">
-
-            <div class="date" id="date"><strong>Люблю тебя! 💖</strong></div>
+        <div class="congrats-box center-text">
+            Все не использованные сертификаты были скрыты.<br><br>
+            Если вдруг понадобятся, напиши админу
         </div>
     </div>
-
-    <!-- КНОПКА В КОНЦЕ -->
-    <a href="https://example.com" class="gift-btn hidden" id="giftBtn">
-        Это тебе!
-    </a>
 
 </div>
 
@@ -54,40 +48,18 @@ function checkPassword() {
 
     if (pass === "2589") {
         document.getElementById('login').classList.add('hidden');
-        document.getElementById('card').classList.remove('hidden');
+
+        const vacation = document.getElementById('vacation');
+        vacation.classList.remove('hidden');
+        void vacation.offsetWidth;
+
         error.textContent = "";
     } else {
         error.textContent = "Неверный пароль";
     }
 }
-
-const cover = document.getElementById('cover');
-let opened = false;
-
-cover.addEventListener('click', () => {
-    if (opened) return;
-    opened = true;
-
-    cover.classList.add('open');
-
-    setTimeout(() => show('m1'), 700);
-    setTimeout(() => show('m2'), 2200);
-    setTimeout(() => show('m3'), 3800);
-    setTimeout(() => show('photo'), 3800);
-    setTimeout(() => show('date'), 5200);
-    setTimeout(() => document.getElementById('giftBtn').classList.remove('hidden'), 6500);
-});
-
-function show(id) {
-    document.getElementById(id).classList.add('show');
-}
 </script>
 
 </body>
 </html>
-
-
-
-
-
 
