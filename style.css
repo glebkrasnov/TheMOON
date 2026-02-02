@@ -8,7 +8,7 @@
    ========================= */
 body {
     margin: 0;
-    background: linear-gradient(180deg, #f7c1cc, #fbe6ec);
+    background: url("gift.jpg") center / cover no-repeat;
     /* 👉 можешь заменить на картинку:
        background: url("gift.jpg") center / cover no-repeat;
     */
@@ -190,3 +190,4 @@ body {
     50% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
+
