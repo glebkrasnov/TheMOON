@@ -3,12 +3,16 @@
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* 🔧 ФОН САЙТА */
+/* =========================
+   ФОН ВСЕГО САЙТА
+   ========================= */
 body {
     margin: 0;
-    background: url("gift.jpg") center / cover no-repeat;
+    background: linear-gradient(180deg, #f7c1cc, #fbe6ec);
+    /* 👉 можешь заменить на картинку:
+       background: url("gift.jpg") center / cover no-repeat;
+    */
 }
-
 
 .page {
     min-height: 100vh;
@@ -19,7 +23,9 @@ body {
     gap: 24px;
 }
 
-/* LOGIN */
+/* =========================
+   ВХОД / ПАРОЛЬ
+   ========================= */
 .login-box {
     width: 280px;
     background: rgba(255,255,255,0.95);
@@ -38,17 +44,17 @@ body {
     font-weight: 500;
 }
 
-input {
+.login-box input {
     padding: 10px;
     font-size: 16px;
 }
 
-button {
+.login-box button {
     padding: 12px;
     border: none;
     border-radius: 8px;
     background: #18171C;
-    color: white;
+    color: #fff;
 }
 
 .error {
@@ -56,7 +62,9 @@ button {
     color: red;
 }
 
-/* CARD */
+/* =========================
+   ОТКРЫТКА
+   ========================= */
 .card {
     width: 340px;
     height: 460px;
@@ -64,12 +72,16 @@ button {
     perspective: 1400px;
 }
 
-/* ОБЛОЖКА — ОТКРЫВАЕТСЯ КАК КНИГА */
+/* ---------- ЛИЦЕВАЯ СТОРОНА ---------- */
 .card-cover {
     position: absolute;
     inset: 0;
-    background: #ffffff;
+
+    /* 🔥 ТВОЙ ДИЗАЙН ЛИЦЕВОЙ СТОРОНЫ */
+    background: url("bg1.jpg") center / cover no-repeat;
+
     z-index: 3;
+    border-radius: 18px;
 
     display: flex;
     flex-direction: column;
@@ -78,28 +90,33 @@ button {
 
     transform-origin: left center;
     transition: transform 1.2s ease;
-    border-radius: 18px;
 }
 
 .card-cover.open {
     transform: rotateY(-160deg);
-    box-shadow: -12px 0 30px rgba(0,0,0,0.15);
+    box-shadow: -14px 0 30px rgba(0,0,0,0.2);
 }
 
+/* элементы поверх обложки (если нужны) */
 .heart {
     font-size: 64px;
     animation: pulse 2s infinite;
 }
 
 .tap-text {
-    opacity: 0.6;
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: 0.8;
 }
 
-/* ВНУТРЕННЯЯ СТОРОНА */
+/* ---------- ВНУТРЕННЯЯ СТОРОНА ---------- */
 .card-inside {
     position: absolute;
     inset: 0;
-    background: #ffffff;
+
+    /* 🔥 ТВОЙ ДИЗАЙН ВНУТРЕННЕЙ СТОРОНЫ */
+    background: url("bg2.jpg") center / cover no-repeat;
+
     border-radius: 18px;
     padding: 20px;
 
@@ -110,11 +127,15 @@ button {
     gap: 12px;
 }
 
+/* =========================
+   КОНТЕНТ ВНУТРИ
+   ========================= */
 .message {
     opacity: 0;
     transform: translateY(10px);
     transition: 0.6s;
     text-align: center;
+    color: #000;
 }
 
 .message.big {
@@ -140,7 +161,9 @@ button {
     transform: translateY(0);
 }
 
-/* КНОПКА */
+/* =========================
+   КНОПКА В КОНЦЕ
+   ========================= */
 .gift-btn {
     padding: 14px 28px;
     border-radius: 30px;
@@ -155,7 +178,9 @@ button {
     background: #f29ab3;
 }
 
-/* UTILS */
+/* =========================
+   ВСПОМОГАТЕЛЬНОЕ
+   ========================= */
 .hidden {
     display: none;
 }
