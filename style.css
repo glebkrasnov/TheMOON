@@ -98,7 +98,7 @@ button:hover,
 
 /* Интервалы между фразами */
 .text {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .text.small {
@@ -108,7 +108,7 @@ button:hover,
 
 /* Видео */
 #media {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #media video {
@@ -152,3 +152,4 @@ button:hover,
         font-size: 28px;
     }
 }
+
