@@ -46,11 +46,12 @@
             <video src="IMG_2909.MP4" autoplay muted loop playsinline preload="auto"></video>
         </div>
 
-        <a href="https://example.com" class="gift-btn hidden" id="goBtn">
-            Это тебе!
-        </a>
-
     </div>
+
+    <!-- Кнопка теперь вне контейнера -->
+    <a href="https://example.com" class="gift-btn hidden" id="goBtn">
+        Это тебе!
+    </a>
 
 </div>
 
@@ -85,31 +86,27 @@ function startSequence() {
     const media = document.getElementById("media");
     const btn = document.getElementById("goBtn");
 
-    // Приветствие
+    // Появление приветствия
     welcome.classList.remove("hidden");
+    setTimeout(() => welcome.classList.add("fade-out"), 2800);
 
-    setTimeout(() => {
-        welcome.classList.add("fade-out");
-    }, 2800);
-
-    // Появляется белый контейнер
+    // Появление контейнера и первой фразы одновременно
     setTimeout(() => {
         welcome.classList.add("hidden");
         box.classList.remove("hidden");
+        love1.classList.remove("hidden"); // появляется сразу с контейнером
     }, 3800);
 
-    // Фразы
-    setTimeout(() => love1.classList.remove("hidden"), 4200);
-    setTimeout(() => love2.classList.remove("hidden"), 5600);
+    // Вторая фраза
+    setTimeout(() => love2.classList.remove("hidden"), 5000);
 
     // Видео
-    setTimeout(() => media.classList.remove("hidden"), 7800);
+    setTimeout(() => media.classList.remove("hidden"), 7200);
 
-    // Кнопка
-    setTimeout(() => btn.classList.remove("hidden"), 10000);
+    // Кнопка появляется под контейнером
+    setTimeout(() => btn.classList.remove("hidden"), 9500);
 }
 </script>
 
 </body>
 </html>
-
