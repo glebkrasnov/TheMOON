@@ -13,11 +13,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* чтобы кнопка была под контейнером */
+    flex-direction: column; /* чтобы кнопка под контейнером */
+    position: relative;
 }
 
 /* Экран входа */
-.container {
+#login.container {
     width: 100%;
     max-width: 360px;
     padding: 16px;
@@ -27,7 +28,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    /* Добавлено центрирование по вертикали */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 input {
     padding: 12px;
@@ -146,3 +154,4 @@ button:hover,
         font-size: 28px;
     }
 }
+
