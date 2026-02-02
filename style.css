@@ -14,10 +14,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column; /* чтобы кнопка была под контейнером */
+    position: relative;
 }
 
 /* Экран входа */
-.container {
+#login.container {
     width: 100%;
     max-width: 360px;
     padding: 16px;
@@ -27,6 +28,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 input {
@@ -83,18 +89,11 @@ button:hover,
     text-align: center;
     max-width: 360px;
     width: 90%;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
 }
 
-/* Текст */
-.text {
+/* Текст и видео по умолчанию */
+.text, .text.small, #media, .gift-btn {
     opacity: 0;
-}
-
-.text.small {
-    font-size: 16px;
-    margin-top: 12px;
 }
 
 /* Видео */
@@ -102,10 +101,8 @@ button:hover,
     margin-top: 18px;
     position: relative;
     z-index: 1;
-    opacity: 0;
 }
 
-/* Видео */
 #media video {
     width: 100%;
     border-radius: 12px;
@@ -116,7 +113,6 @@ button:hover,
     margin-top: 18px;
     position: relative;
     z-index: 2;
-    opacity: 0;
 }
 
 /* Плавное появление */
