@@ -7,28 +7,39 @@
 
     <title>The M O O N</title>
 
+    <!-- ИКОНКА ДЛЯ iPHONE -->
     <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
+
+    <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    <!-- СТИЛИ -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ЭКРАН ВХОДА -->
-<section class="login-screen" id="login">
-    <div class="login-box">
+<div class="page">
+
+    <!-- ВХОД -->
+    <div class="container" id="login">
         <h2>Введите пароль</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
-        <p class="error" id="error"></p>
+        <p id="error" class="error"></p>
     </div>
-</section>
 
-<!-- ОСНОВНОЙ КОНТЕНТ -->
-<section class="content hidden" id="content">
-    <img src="тест 2.png" alt="Для тебя" class="long-image">
-</section>
+    <!-- САЙТ В ОТПУСКЕ -->
+    <div class="container hidden" id="vacation">
+        <h2>🌚 Сайт находится в отпуске</h2>
+
+        <div class="congrats-box center-text">
+            Все не использованные сертификаты были скрыты.<br><br>
+            Если вдруг понадобятся, напиши админу
+        </div>
+    </div>
+
+</div>
 
 <script>
 function checkPassword() {
@@ -37,9 +48,12 @@ function checkPassword() {
 
     if (pass === "2589") {
         document.getElementById('login').classList.add('hidden');
-        document.getElementById('content').classList.remove('hidden');
+
+        const vacation = document.getElementById('vacation');
+        vacation.classList.remove('hidden');
+        void vacation.offsetWidth;
+
         error.textContent = "";
-        window.scrollTo(0, 0);
     } else {
         error.textContent = "Неверный пароль";
     }
@@ -48,6 +62,4 @@ function checkPassword() {
 
 </body>
 </html>
-
-
 
