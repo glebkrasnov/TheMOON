@@ -25,10 +25,12 @@
         <p id="error" class="error"></p>
     </div>
 
-    <!-- ПРИВЕТСТВИЕ -->
-    <div id="welcome" class="welcome hidden">
-        <span>Добро пожаловать,</span><br>
-        <span class="name">Екатерина!</span>
+    <!-- ПРИВЕТСТВИЕ В КОНТЕЙНЕРЕ -->
+    <div id="welcomeBox" class="welcome-box hidden">
+        <div class="welcome">
+            <span>Добро пожаловать,</span><br>
+            <span class="name">Екатерина!</span>
+        </div>
     </div>
 
     <!-- БЕЛЫЙ КОНТЕЙНЕР -->
@@ -48,7 +50,7 @@
 
     </div>
 
-    <!-- Кнопка под белым контейнером -->
+    <!-- Кнопка под контейнером -->
     <a href="https://lenta.com/gc/h5ig9Mo8hsc8wg3LrMvvYf/" class="gift-btn hidden" id="goBtn">
         👉 Это тебе! 👈
     </a>
@@ -78,41 +80,38 @@ function checkPassword() {
 
 function startSequence() {
     const login = document.getElementById("login");
-    const welcome = document.getElementById("welcome");
+    const welcomeBox = document.getElementById("welcomeBox");
     const box = document.getElementById("contentBox");
     const love1 = document.getElementById("love1");
     const love2 = document.getElementById("love2");
     const media = document.getElementById("media");
     const btn = document.getElementById("goBtn");
 
-    // Скрываем поле с паролем полностью
     login.style.display = "none";
 
-    // Появление приветствия
-    welcome.classList.remove("hidden");
-    setTimeout(() => welcome.classList.add("fade-out"), 2800);
+    // Приветствие
+    welcomeBox.classList.remove("hidden");
+    setTimeout(() => welcomeBox.classList.add("fade-out"), 2800);
 
-    // Появление контейнера + первой фразы
+    // Основной контейнер
     setTimeout(() => {
-        welcome.classList.add("hidden");
+        welcomeBox.classList.add("hidden");
         box.classList.remove("hidden");
+
         love1.classList.remove("hidden");
         love1.classList.add("fade-in");
     }, 3800);
 
-    // Плавное появление второй фразы
     setTimeout(() => {
         love2.classList.remove("hidden");
         love2.classList.add("fade-in");
     }, 6000);
 
-    // Плавное появление видео
     setTimeout(() => {
         media.classList.remove("hidden");
         media.classList.add("fade-in");
     }, 8200);
 
-    // Плавное появление кнопки под контейнером
     setTimeout(() => {
         btn.classList.remove("hidden");
         btn.classList.add("fade-in");
@@ -122,4 +121,3 @@ function startSequence() {
 
 </body>
 </html>
-
