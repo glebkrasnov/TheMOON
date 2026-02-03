@@ -2,8 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
 
     <title>The M O O N</title>
 
@@ -25,7 +30,7 @@
         <p id="error" class="error"></p>
     </div>
 
-    <!-- ПРИВЕТСТВИЕ В КОНТЕЙНЕРЕ -->
+    <!-- ПРИВЕТСТВИЕ -->
     <div id="welcomeBox" class="welcome-box hidden">
         <div class="welcome">
             <span>Добро пожаловать,</span><br>
@@ -51,7 +56,9 @@
     </div>
 
     <!-- Кнопка под контейнером -->
-    <a href="https://lenta.com/gc/h5ig9Mo8hsc8wg3LrMvvYf/" class="gift-btn hidden" id="goBtn">
+    <a href="https://lenta.com/gc/h5ig9Mo8hsc8wg3LrMvvYf/"
+       class="gift-btn hidden"
+       id="goBtn">
         👉 Это тебе! 👈
     </a>
 
@@ -89,11 +96,9 @@ function startSequence() {
 
     login.style.display = "none";
 
-    // Приветствие
     welcomeBox.classList.remove("hidden");
     setTimeout(() => welcomeBox.classList.add("fade-out"), 2800);
 
-    // Основной контейнер
     setTimeout(() => {
         welcomeBox.classList.add("hidden");
         box.classList.remove("hidden");
