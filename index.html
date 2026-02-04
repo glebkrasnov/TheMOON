@@ -2,13 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!-- PWA -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#ffffff">
 
     <title>The M O O N</title>
 
@@ -20,111 +15,68 @@
 </head>
 <body>
 
-<div class="page">
-
-    <!-- ВХОД -->
-    <div class="container" id="login">
-        <h2 class="center-text">Введите пароль</h2>
+<!-- ЭКРАН ВХОДА -->
+<section class="login-screen" id="login">
+    <div class="login-box">
+        <h2>Прямо сейчас происходит магия</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
-        <p id="error" class="error"></p>
+        <p class="error" id="error"></p>
     </div>
+</section>
 
-    <!-- ПРИВЕТСТВИЕ -->
-    <div id="welcomeBox" class="welcome-box hidden">
-        <div class="welcome">
-            <span>Добро пожаловать,</span><br>
-            <span class="name">Екатерина!</span>
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<section class="content hidden" id="content">
+    <div class="background-wrapper">
+        <img src="bg04.09.png" alt="Для тебя" class="long-image">
+
+        <!-- Элементы поверх картинки -->
+        <div class="overlay-elements">
+
+            <!-- ФОТО 1-20 -->
+            <div class="overlay-item" style="top: 375px; left: 50px; width: 981px; height: 1161px;">
+                <img src="photo1.png" class="hidden-media" alt="Фото 1">
+                <div class="cover" onclick="this.style.display='none'"></div>
+            </div>
+            <div class="overlay-item" style="top: 1785px; left: 441px; width: 590px; height: 693px;">
+                <img src="photo2.png" class="hidden-media" alt="Фото 2">
+                <div class="cover" onclick="this.style.display='none'"></div>
+            </div>
+            <!-- …добавь остальные фото до photo20 аналогично, меняя координаты и src -->
+
+            <!-- ВИДЕО 1-9 -->
+            <div class="overlay-item" style="top: 7588px; left: 65px; width: 952px; height: 595px;">
+                <video class="hidden-media" controls>
+                    <source src="мужик потеет.mp4" type="video/mp4">
+                </video>
+                <div class="cover" onclick="this.style.display='none'"></div>
+            </div>
+            <div class="overlay-item" style="top: 400px; left: 50px; width: 320px; height: 180px;">
+                <video class="hidden-media" controls>
+                    <source src="video2.mp4" type="video/mp4">
+                </video>
+                <div class="cover" onclick="this.style.display='none'"></div>
+            </div>
+            <!-- …добавь остальные видео до video9 аналогично -->
         </div>
     </div>
-
-    <!-- БЕЛЫЙ КОНТЕЙНЕР -->
-    <div id="contentBox" class="content-box hidden">
-
-        <div id="love1" class="text hidden">
-            С днём всех влюблённых 🥰
-        </div>
-
-        <div id="love2" class="text small hidden">
-            Я очень рад, что ты моя вторая половинка! 🤗
-        </div>
-
-        <div id="media" class="hidden">
-            <video src="IMG_29009.mp4" autoplay muted loop playsinline preload="auto"></video>
-        </div>
-
-    </div>
-
-    <!-- Кнопка под контейнером -->
-    <a href="https://lenta.com/gc/h5ig9Mo8hsc8wg3LrMvvYf/"
-       class="gift-btn hidden"
-       id="goBtn">
-        👉 Это тебе! 👈
-    </a>
-
-</div>
+</section>
 
 <script>
-const PASSWORD = "2589";
-
-window.onload = () => {
-    if (localStorage.getItem("auth") === "true") {
-        startSequence();
-    }
-};
-
 function checkPassword() {
-    const pass = document.getElementById("password").value;
-    const error = document.getElementById("error");
+    const pass = document.getElementById('password').value;
+    const error = document.getElementById('error');
 
-    if (pass === PASSWORD) {
-        localStorage.setItem("auth", "true");
-        startSequence();
+    if (pass === "222") {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+        error.textContent = "";
+        window.scrollTo(0, 0);
     } else {
-        error.textContent = "Неверный пароль";
+        error.textContent = "Э, не подглядывай";
     }
-}
-
-function startSequence() {
-    const login = document.getElementById("login");
-    const welcomeBox = document.getElementById("welcomeBox");
-    const box = document.getElementById("contentBox");
-    const love1 = document.getElementById("love1");
-    const love2 = document.getElementById("love2");
-    const media = document.getElementById("media");
-    const btn = document.getElementById("goBtn");
-
-    login.style.display = "none";
-
-    welcomeBox.classList.remove("hidden");
-    setTimeout(() => welcomeBox.classList.add("fade-out"), 2800);
-
-    setTimeout(() => {
-        welcomeBox.classList.add("hidden");
-        box.classList.remove("hidden");
-
-        love1.classList.remove("hidden");
-        love1.classList.add("fade-in");
-    }, 3800);
-
-    setTimeout(() => {
-        love2.classList.remove("hidden");
-        love2.classList.add("fade-in");
-    }, 6000);
-
-    setTimeout(() => {
-        media.classList.remove("hidden");
-        media.classList.add("fade-in");
-    }, 8200);
-
-    setTimeout(() => {
-        btn.classList.remove("hidden");
-        btn.classList.add("fade-in");
-    }, 10500);
 }
 </script>
 
 </body>
 </html>
-
-
