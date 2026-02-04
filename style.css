@@ -1,40 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  background: #000;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
 }
 
-/* Контейнер */
-.wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
+/* ===== ЭКРАН ВХОДА ===== */
+
+.login-screen {
+    min-height: 100vh;
+    background: url("gift.jpg") no-repeat center center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
 }
 
-/* Длинное изображение */
+.login-screen::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.login-box {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 280px;
+    background: rgba(255,255,255,0.95);
+
+    /* 🔥 ВАЖНО: меньше снизу */
+    padding: 12px 12px 6px;
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 16px;           /* 🔥 МЕНЬШЕ */
+}
+
+input {
+    width: 100%;
+    padding: 10px;             /* 🔥 МЕНЬШЕ */
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;             /* 🔥 МЕНЬШЕ */
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #18171C;
+    color: #fff;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    min-height: 14px;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+
+.content {
+    background: #000;
+}
+
+/* ДЛИННАЯ КАРТИНКА */
 .long-image {
-  width: 100%;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Заглушки */
-.mask {
-  position: absolute;
 
-  /* ФОН ЗАГЛУШКИ — МЕНЯЕШЬ ТУТ */
-  background: rgba(255, 255, 255, 0.85);
-
-  border-radius: 16px;
-  cursor: move;
-
-  transition: opacity 0.4s ease;
-
-  /* ВРЕМЕННО для настройки */
-  outline: 2px dashed red;
-}
-
-/* Скрытие при клике */
-.mask.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
