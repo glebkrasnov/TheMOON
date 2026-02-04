@@ -1,53 +1,72 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Moon</title>
 
-    <title>The M O O N</title>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
 
-<!-- ЭКРАН ВХОДА -->
-<section class="login-screen" id="login">
-    <div class="login-box">
-        <h2>Прямо сейчас происходит магия</h2>
-        <input type="password" id="password" placeholder="Пароль">
-        <button onclick="checkPassword()">Войти</button>
-        <p class="error" id="error"></p>
-    </div>
-</section>
+<div class="wrapper">
 
-<!-- ОСНОВНОЙ КОНТЕНТ -->
-<section class="content hidden" id="content">
-    <img src="тест 3.png" alt="Для тебя" class="long-image">
-</section>
+  <!-- ДЛИННОЕ ИЗОБРАЖЕНИЕ -->
+  <img src="тест 3.png" class="long-image" alt="">
 
+  <!-- ======= ПРИМЕРЫ ЗАГЛУШЕК ======= -->
+
+  <!-- ФОТО (по центру) -->
+  <div class="mask"
+       style="top: 1200px; height: 260px;"
+       onclick="this.classList.add('hidden')">
+  </div>
+
+  <!-- ФОТО (справа) -->
+  <div class="mask"
+       style="top: 2600px; left: 58%; width: 36%; height: 240px;"
+       onclick="this.classList.add('hidden')">
+  </div>
+
+  <!-- ВИДЕО -->
+  <div class="mask"
+       style="top: 4200px; height: 320px;"
+       onclick="this.classList.add('hidden')">
+  </div>
+
+</div>
+
+<!-- ===== DRAG & MOVE (ВРЕМЕННО ДЛЯ НАСТРОЙКИ) ===== -->
 <script>
-function checkPassword() {
-    const pass = document.getElementById('password').value;
-    const error = document.getElementById('error');
+document.querySelectorAll('.mask').forEach(mask => {
+  let startX = 0, startY = 0;
+  let startTop = 0, startLeft = 0;
 
-    if (pass === "222") {
-        document.getElementById('login').classList.add('hidden');
-        document.getElementById('content').classList.remove('hidden');
-        error.textContent = "";
-        window.scrollTo(0, 0);
-    } else {
-        error.textContent = "Э, не подглядывай";
-    }
-}
+  mask.addEventListener('mousedown', e => {
+    e.preventDefault();
+
+    startX = e.clientX;
+    startY = e.clientY;
+    startTop = mask.offsetTop;
+    startLeft = mask.offsetLeft;
+
+    document.onmousemove = ev => {
+      mask.style.top = startTop + (ev.clientY - startY) + 'px';
+      mask.style.left = startLeft + (ev.clientX - startX) + 'px';
+    };
+
+    document.onmouseup = () => {
+      document.onmousemove = null;
+      document.onmouseup = null;
+
+      console.log(
+        `top: ${mask.style.top}; left: ${mask.style.left}; height: ${mask.offsetHeight}px; width: ${mask.offsetWidth}px;`
+      );
+    };
+  });
+});
 </script>
 
 </body>
 </html>
-
-
-
