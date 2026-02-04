@@ -9,6 +9,7 @@ body {
 }
 
 /* ===== ЭКРАН ВХОДА ===== */
+
 .login-screen {
     min-height: 100vh;
     background: url("gift.jpg") no-repeat center center;
@@ -34,27 +35,32 @@ body {
     width: 100%;
     max-width: 280px;
     background: rgba(255,255,255,0.95);
+
+    /* 🔥 ВАЖНО: меньше снизу */
     padding: 12px 12px 6px;
+
     border-radius: 12px;
+
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
+
 h2 {
     margin: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 16px;           /* 🔥 МЕНЬШЕ */
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 10px;             /* 🔥 МЕНЬШЕ */
     font-size: 16px;
 }
 
 button {
-    padding: 10px;
+    padding: 10px;             /* 🔥 МЕНЬШЕ */
     font-size: 15px;
     border: none;
     border-radius: 8px;
@@ -74,6 +80,7 @@ button {
 }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+
 .content {
     background: #000;
 }
@@ -85,37 +92,4 @@ button {
     display: block;
 }
 
-.background-wrapper {
-    position: relative;
-}
 
-.overlay-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.overlay-item {
-    position: absolute;
-}
-
-/* Скрытые элементы под заглушкой */
-.hidden-media {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Заглушка */
-.cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    cursor: pointer;
-    transition: opacity 0.3s;
-}
