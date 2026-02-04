@@ -28,24 +28,28 @@
 <!-- ================= ОСНОВНОЙ КОНТЕНТ ================= -->
 <section class="content hidden" id="content">
 
-    <!-- ФОН (твоя большая картинка) -->
-    <img src="bg04.09.png" class="long-image" alt="Фон">
+    <!-- ФОН -->
+    <img src="bg04.09.png" alt="Фон" class="long-image">
 
     <!-- ================================================= -->
-    <!-- 🔹 ПРИМЕР 1 — ФОТО -->
+    <!-- ПРИМЕР ФОТО / ВИДЕО БЛОКА -->
+    <!-- координаты берёшь из Photoshop -->
     <!-- ================================================= -->
     <div class="media-item"
-         style="top: 375px; left: 50px; width: 981px; height: 1161px;">
+         style="
+            left: 50px;
+            top: 375px;
+            width: 981px;
+            height: 1161px;
+         ">
 
-        <!-- САМО ФОТО -->
-        <img src="photo1.png" class="media">
+        <!-- ФОТО -->
+        <img src="photo1.jpg" class="media">
 
         <!-- ЗАГЛУШКА -->
-        <div class="mask" onclick="hideMask(this)">
-            <!-- если хочешь картинку-заглушку — см. CSS -->
-        </div>
+        <div class="mask" onclick="hideMask(this)"></div>
     </div>
-
+    
     <!-- ================================================= -->
     <!-- 🔹 ПРИМЕР 2 — ВИДЕО -->
     <!-- ================================================= -->
@@ -61,7 +65,8 @@
         <div class="mask" onclick="hideMask(this)"></div>
     </div>
 
-    <!-- 🔁 ДАЛЬШЕ ПРОСТО КОПИРУЕШЬ media-item -->
+    <!-- 🔁 Копируешь media-item столько раз, сколько нужно -->
+
 </section>
 
 <script>
@@ -71,8 +76,8 @@ function checkPassword() {
     const error = document.getElementById('error');
 
     if (pass === "222") {
-        login.classList.add('hidden');
-        content.classList.remove('hidden');
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
         error.textContent = "";
         window.scrollTo(0, 0);
     } else {
@@ -88,6 +93,3 @@ function hideMask(mask) {
 
 </body>
 </html>
-
-
-
