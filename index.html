@@ -2,19 +2,20 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+
     <title>The M O O N</title>
 
-    <!-- ИКОНКА ДЛЯ iPHONE -->
     <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
-
-    <!-- ЧТОБЫ ОТКРЫВАЛОСЬ КАК ПРИЛОЖЕНИЕ -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- СТИЛИ -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,150 +24,104 @@
 
     <!-- ВХОД -->
     <div class="container" id="login">
-        <h2>Введите пароль</h2>
+        <h2 class="center-text">Введите пароль</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
         <p id="error" class="error"></p>
     </div>
 
-    <!-- ГЛАВНОЕ МЕНЮ -->
-    <div class="container hidden" id="content">
-        <h2>Открывай скорей!</h2>
-
-        <button class="gift-btn" onclick="openCongrats()">💌 Поздравление</button>
-        <button class="gift-btn" onclick="openGift1()">Получить подарок №1</button>
-        <a class="gift-btn" onclick="openGift2()">Получить подарок №2</a>
-
-        <a href="https://egift.mgc-loyalty.ru/ea16ad16-a759-44b0-b896-3854bc285ffa/view/3e8a85c3-ceb8-431f-a2ae-72d4446b433f" class="gift-btn">
-            Получить подарок №3
-        </a>
-
-        <button class="gift-btn" onclick="openGift4()">Получить подарок №4</button>
-
-        <a href="https://sokolov.ru/gift-card/preview/2801000577794/" class="gift-btn">
-            Получить подарок №5
-        </a>
+    <!-- ПРИВЕТСТВИЕ -->
+    <div id="welcomeBox" class="welcome-box hidden">
+        <div class="welcome">
+            <span>Добро пожаловать,</span><br>
+            <span class="name">Екатерина!</span>
+        </div>
     </div>
 
-    <!-- ПОЗДРАВЛЕНИЕ -->
-    <div class="container hidden" id="congrats">
-        <h2>💌 Поздравление</h2>
+    <!-- БЕЛЫЙ КОНТЕЙНЕР -->
+    <div id="contentBox" class="content-box hidden">
 
-        <div class="congrats-box">
-            <p>
-                <strong>Дорогая Екатерина❗️</strong><br><br>
-
-                Сегодня тебе исполнилось 2️⃣1️⃣ 😯<br>
-                Пусть этот день наполнится теплом улыбок, радостью встреч и светлыми мгновениями счастья!<br>
-                Желаю тебе крепкого здоровья 💪<br>
-                Чтобы головная боль навсегда исчезла из твоей жизни 🤕, и каждый новый день приносил только радость и вдохновение!😉<br><br>
-
-                Ты особенная для меня, потому что твоя доброта и нежность согревают моё сердце!❤️‍🔥🥹<br>
-                Спасибо за твоё присутствие рядом, твои искренние чувства и заботу!😇<br>
-                Я искренне ценю тебя и дорожу каждым моментом вместе!🥰<br><br>
-
-                Любимая Катенька, знай, что я всегда буду рядом, поддерживая и оберегая тебя!🫡<br>
-                Ты моя единственная и неповторимая, и я бесконечно счастлив, что мы вместе!🫶<br><br>
-
-                Всегда твой, Глеб<br><br>
-
-                <strong>P.S.: Люблю тебя безумно!❤️☺️</strong>
-            </p>
+        <div id="love1" class="text hidden">
+            С днём всех влюблённых 🥰
         </div>
 
-        <button onclick="backToMenu()">⬅ Назад</button>
-    </div>
-
-    <!-- ПОДАРОК №1 -->
-    <div class="container hidden" id="gift1">
-        <h2>🎁 Ваш подарок</h2>
-
-        <div class="congrats-box center-text">
-            <strong>Подписка Telegram Premium на 2 года 💎</strong><br>
-            или<br>
-            Распределить <strong>3000 руб</strong>., как захочешь! 💸
+        <div id="love2" class="text small hidden">
+            Я очень рад, что ты моя вторая половинка! 🤗
         </div>
 
-        <button onclick="backToMenu()">⬅ Назад</button>
-    </div>
-
-    <!-- ПОДАРОК №2 -->
-    <div class="container hidden" id="gift2">
-        <h2>🎁 Ваш подарок</h2>
-
-        <div class="congrats-box center-text">
-            <img src="IMG_2840.PNG"
-                 alt="Подарок №2"
-                 style="width:100%; border-radius:10px;">
+        <div id="media" class="hidden">
+            <video src="IMG_29009.mp4" autoplay muted loop playsinline preload="auto"></video>
         </div>
 
-        <button onclick="backToMenu()">⬅ Назад</button>
     </div>
 
-    <!-- ПОДАРОК №4 -->
-    <div class="container hidden" id="gift4">
-        <h2>🎁 Ваш подарок</h2>
-
-        <div class="congrats-box center-text">
-            Подарок №4 (по секрету 🤫)<br>
-            находится в рюкзаке,<br>
-            в верхнем, маленьком кармане у Глебушки.<br>
-            <strong>Забирай❗</strong>
-        </div>
-
-        <button onclick="backToMenu()">⬅ Назад</button>
-    </div>
+    <!-- Кнопка под контейнером -->
+    <a href="https://lenta.com/gc/h5ig9Mo8hsc8wg3LrMvvYf/"
+       class="gift-btn hidden"
+       id="goBtn">
+        👉 Это тебе! 👈
+    </a>
 
 </div>
 
 <script>
-    function checkPassword() {
-        const pass = document.getElementById('password').value;
-        const error = document.getElementById('error');
+const PASSWORD = "2589";
 
-        if (pass === "2589") {
-            document.getElementById('login').classList.add('hidden');
-            const content = document.getElementById('content');
-            content.classList.remove('hidden');
-            void content.offsetWidth;
-            error.textContent = "";
-        } else {
-            error.textContent = "Неверный пароль";
-        }
+window.onload = () => {
+    if (localStorage.getItem("auth") === "true") {
+        startSequence();
     }
+};
 
-    function hideAll() {
-        document.querySelectorAll('.container').forEach(el => {
-            if (el.id !== 'login') el.classList.add('hidden');
-        });
-    }
+function checkPassword() {
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error");
 
-    function openCongrats() {
-        hideAll();
-        document.getElementById('congrats').classList.remove('hidden');
+    if (pass === PASSWORD) {
+        localStorage.setItem("auth", "true");
+        startSequence();
+    } else {
+        error.textContent = "Неверный пароль";
     }
+}
 
-    function openGift1() {
-        hideAll();
-        document.getElementById('gift1').classList.remove('hidden');
-    }
+function startSequence() {
+    const login = document.getElementById("login");
+    const welcomeBox = document.getElementById("welcomeBox");
+    const box = document.getElementById("contentBox");
+    const love1 = document.getElementById("love1");
+    const love2 = document.getElementById("love2");
+    const media = document.getElementById("media");
+    const btn = document.getElementById("goBtn");
 
-    function openGift2() {
-        hideAll();
-        document.getElementById('gift2').classList.remove('hidden');
-    }
+    login.style.display = "none";
 
-    function openGift4() {
-        hideAll();
-        document.getElementById('gift4').classList.remove('hidden');
-    }
+    welcomeBox.classList.remove("hidden");
+    setTimeout(() => welcomeBox.classList.add("fade-out"), 2800);
 
-    function backToMenu() {
-        hideAll();
-        const content = document.getElementById('content');
-        content.classList.remove('hidden');
-        void content.offsetWidth;
-    }
+    setTimeout(() => {
+        welcomeBox.classList.add("hidden");
+        box.classList.remove("hidden");
+
+        love1.classList.remove("hidden");
+        love1.classList.add("fade-in");
+    }, 3800);
+
+    setTimeout(() => {
+        love2.classList.remove("hidden");
+        love2.classList.add("fade-in");
+    }, 6000);
+
+    setTimeout(() => {
+        media.classList.remove("hidden");
+        media.classList.add("fade-in");
+    }, 8200);
+
+    setTimeout(() => {
+        btn.classList.remove("hidden");
+        btn.classList.add("fade-in");
+    }, 10500);
+}
 </script>
 
 </body>
