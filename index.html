@@ -1,57 +1,28 @@
-body {
-  margin: 0;
-  background: #000;
-}
-
-/* Контейнер */
-.wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-/* Длинное изображение */
-.long-image {
-  width: 100%;
-  display: block;
-}
-
-/* Заглушки */
-.mask {
-  position: absolute;
-
-  /* ФОН ЗАГЛУШКИ — МЕНЯЕШЬ ТУТ */
-  background: rgba(255, 255, 255, 0.85);
-
-  border-radius: 16px;
-  cursor: move;
-
-  transition: opacity 0.4s ease;
-
-  /* ВРЕМЕННО для настройки */
-  outline: 2px dashed red;
-}
-
-/* Скрытие при клике */
-.mask.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <title>The M O O N</title>
-
     <link rel="apple-touch-icon" sizes="180x180" href="IMG_2777.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== СТИЛИ ДЛЯ МАСОК ===== */
+        .mask {
+            position: absolute;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: opacity 0.4s ease;
+            outline: 2px dashed red; /* временно для настройки */
+        }
+        .mask.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -67,10 +38,22 @@ body {
 
 <!-- ОСНОВНОЙ КОНТЕНТ -->
 <section class="content hidden" id="content">
-    <img src="long.jpg" alt="Для тебя" class="long-image">
+    <img src="тест 3.png" alt="Для тебя" class="long-image">
+
+    <!-- Примеры масок -->
+    <div class="mask"
+         style="top: 150px; left: 50px; width: 200px; height: 150px; background: rgba(255,255,255,0.8);"
+         onclick="revealMask(this)">
+    </div>
+
+    <div class="mask"
+         style="top: 400px; left: 300px; width: 250px; height: 180px; background: rgba(0,0,0,0.6);"
+         onclick="revealMask(this)">
+    </div>
 </section>
 
 <script>
+/* ===== ЛОГИКА ПАРОЛЯ ===== */
 function checkPassword() {
     const pass = document.getElementById('password').value;
     const error = document.getElementById('error');
@@ -84,8 +67,17 @@ function checkPassword() {
         error.textContent = "Э, не подглядывай";
     }
 }
+
+/* ===== ЛОГИКА МАСОК ===== */
+const revealedMasks = new Set();
+
+function revealMask(mask) {
+    if (!revealedMasks.has(mask)) {
+        mask.classList.add('hidden');
+        revealedMasks.add(mask);
+    }
+}
 </script>
 
 </body>
 </html>
-
