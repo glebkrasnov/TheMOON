@@ -1,9 +1,106 @@
-/* ===== ОБЁРТКА ДЛЯ ФОТО / ВИДЕО ===== */
-.media-item {
-    position: absolute;   /* ОБЯЗАТЕЛЬНО */
+* {
+    box-sizing: border-box;
 }
 
-/* САМО ФОТО ИЛИ ВИДЕО */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+}
+
+/* ================= ЭКРАН ВХОДА ================= */
+
+.login-screen {
+    min-height: 100vh;
+    background: url("gift.jpg") no-repeat center center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+.login-screen::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.login-box {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 280px;
+    background: rgba(255,255,255,0.95);
+
+    padding: 12px 12px 6px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #18171C;
+    color: #fff;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    min-height: 14px;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ================= ОСНОВНОЙ КОНТЕНТ ================= */
+
+.content {
+    position: relative; /* важно для координат */
+    background: #000;
+
+    /* ================================================= */
+    /* ===== АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ ЭКРАНЫ ===== */
+    /* ================================================= */
+    transform-origin: top left;
+}
+
+/* ФОН */
+.long-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ================= ФОТО / ВИДЕО ================= */
+
+.media-item {
+    position: absolute; /* координаты из Photoshop */
+}
+
 .media {
     width: 100%;
     height: 100%;
@@ -11,28 +108,35 @@
     display: block;
 }
 
-/* ===== ЗАГЛУШКА ===== */
+/* ================= ЗАГЛУШКА ================= */
+
 .mask {
     position: absolute;
-    inset: 0; /* растягивается поверх фото/видео */
+    inset: 0;
 
-    /* 🔧 МЕНЯЕШЬ ДИЗАЙН ЗАГЛУШКИ ТУТ */
-    background: rgba(255,255,255,0.85);
-    /* ИЛИ КАРТИНКА:
-       background: url("mask.jpg") center/cover no-repeat;
+    /* дизайн заглушки */
+    background: rgba(255, 255, 255, 0.85);
+    /* или картинка:
+       background: url("mask.jpg") center / cover no-repeat;
     */
 
     border-radius: 16px;
     cursor: pointer;
-
     transition: opacity 0.4s ease;
 
-    /* ВРЕМЕННО — ДЛЯ НАСТРОЙКИ КООРДИНАТ */
+    /* временно для настройки */
     outline: 2px dashed red;
 }
 
-/* СКРЫТИЕ ЗАГЛУШКИ */
 .mask.hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+/* ================================================= */
+/* ===== МАСШТАБ ДЛЯ ЭКРАНОВ МЕНЬШЕ ЧЕМ 981px ===== */
+@media (max-width: 981px) {
+    .content {
+        transform: scale(calc(100vw / 981));
+    }
 }
