@@ -23,7 +23,7 @@
 
     <!-- ВХОД -->
     <div class="container" id="login">
-        <h2>Введите пароль</h2>
+        <h2>Э, не заходи</h2>
         <input type="password" id="password" placeholder="Пароль">
         <button onclick="checkPassword()">Войти</button>
         <p id="error" class="error"></p>
@@ -31,12 +31,20 @@
 
     <!-- САЙТ В ОТПУСКЕ -->
     <div class="container hidden" id="vacation">
-        <h2>🌚 Сайт готовится к следующему празднику</h2>
+        <h2>С 8 Марта!</h2>
 
         <div class="congrats-box center-text">
-            Все не использованные сертификаты находятся в боте
-        </div>
-    </div>
+
+    <iframe
+        class="youtube-video"
+        src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak?feature=share"
+        title="Видео"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+</div>
 
 </div>
 
@@ -45,7 +53,7 @@ function checkPassword() {
     const pass = document.getElementById('password').value;
     const error = document.getElementById('error');
 
-    if (pass === "2589") {
+    if (pass === "2") {
         document.getElementById('login').classList.add('hidden');
 
         const vacation = document.getElementById('vacation');
@@ -61,5 +69,6 @@ function checkPassword() {
 
 </body>
 </html>
+
 
 
