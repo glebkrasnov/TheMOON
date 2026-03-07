@@ -1,75 +1,113 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>The M O O N</title>
+<meta charset="UTF-8">
 
-    <!-- ИКОНКА ДЛЯ iPHONE -->
-    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/IMG_2777.png">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>The M O O N</title>
 
-    <!-- СТИЛИ -->
-    <link rel="stylesheet" href="style.css">
+<link rel="apple-touch-icon" sizes="180x180" href="8-512.png">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
-<div class="page">
+<!-- ВХОД -->
 
-    <!-- ВХОД -->
-    <div class="container" id="login">
-        <h2>Э, не заходи</h2>
-        <input type="password" id="password" placeholder="Пароль">
-        <button onclick="checkPassword()">Войти</button>
-        <p id="error" class="error"></p>
-    </div>
+<div id="auth-screen" class="fullscreen-overlay">
 
-    <!-- САЙТ В ОТПУСКЕ -->
-    <div class="container hidden" id="vacation">
-        <h2>С 8 Марта! 🌷</h2>
+<div class="glass-box">
 
-        <div class="congrats-box center-text">
+<div class="auth-title">Введи пароль</div>
 
-    <iframe
-        class="youtube-video"
-        src="https://www.youtube-nocookie.com/embed/Pt6KRGEgKUc?si=Be1jwu_4UjGoBB-q"
-        title="Видео"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-    </iframe>
+<input type="password" id="passwordInput" placeholder="Пароль">
+
+<button onclick="checkPassword()">Войти</button>
+
+<div id="auth-error" class="auth-error"></div>
 
 </div>
 
 </div>
+
+
+<!-- ПРИВЕТСТВИЕ -->
+
+<div id="welcome-screen" class="fullscreen-overlay hidden">
+
+<div class="welcome-text">
+
+Добро пожаловать, Екатерина!
+
+</div>
+
+</div>
+
+
+<!-- ВИДЕО -->
+
+<div id="video-screen" class="fullscreen-overlay hidden">
+
+<div class="video-box">
+
+<h2>С 8 Марта! 🌷</h2>
+
+<iframe
+src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
 
 <script>
-function checkPassword() {
-    const pass = document.getElementById('password').value;
-    const error = document.getElementById('error');
 
-    if (pass === "2") {
-        document.getElementById('login').classList.add('hidden');
+const PASSWORD="2589"
 
-        const vacation = document.getElementById('vacation');
-        vacation.classList.remove('hidden');
-        void vacation.offsetWidth;
+function checkPassword(){
 
-        error.textContent = "";
-    } else {
-        error.textContent = "Неверный пароль";
-    }
+const input=document.getElementById("passwordInput").value
+const error=document.getElementById("auth-error")
+
+if(input!==PASSWORD){
+
+error.textContent="Неправильный пароль"
+return
+
 }
+
+error.textContent=""
+
+document.getElementById("auth-screen").classList.add("hidden")
+
+const welcome=document.getElementById("welcome-screen")
+const video=document.getElementById("video-screen")
+
+welcome.classList.remove("hidden")
+
+setTimeout(()=>{
+
+welcome.classList.add("hidden")
+video.classList.remove("hidden")
+
+},2500)
+
+}
+
 </script>
 
 </body>
 </html>
-
-
-
-
