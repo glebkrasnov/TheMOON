@@ -1,114 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The M O O N</title>
+    
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
 
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>The M O O N</title>
-
-<link rel="apple-touch-icon" sizes="180x180" href="img/icons/8-512.png">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-
 <body>
 
-<!-- ВХОД -->
-
+<!-- АВТОРИЗАЦИЯ -->
 <div id="auth-screen" class="fullscreen-overlay">
-
-<div class="glass-box">
-
-<div class="auth-title">Введи пароль</div>
-
-<input type="password" id="passwordInput" placeholder="Пароль">
-
-<button onclick="checkPassword()">Войти</button>
-
-<div id="auth-error" class="auth-error"></div>
-
+    <div class="glass-box">
+        <div class="auth-title">Введи пароль</div>
+        <input type="password" id="passwordInput" placeholder="Пароль">
+        <button onclick="checkPassword()">Войти</button>
+        <div id="auth-error" class="auth-error"></div>
+    </div>
 </div>
-
-</div>
-
 
 <!-- ПРИВЕТСТВИЕ -->
-
 <div id="welcome-screen" class="fullscreen-overlay hidden">
-
-<div class="welcome-text">
-
-Добро пожаловать, Екатерина!
-
+    <div class="welcome-text" style="text-align: center;">
+        Добро пожаловать, Екатерина!
+    </div>
 </div>
 
-</div>
-
-
-<!-- ВИДЕО -->
-
-<div id="video-screen" class="fullscreen-overlay hidden">
-
-<div class="video-box">
-
-<h2>Тебе задание</h2>
-
-<iframe
-src="https://www.youtube-nocookie.com/embed/tn1oAm9PNak"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</div>
-
-
-<script>
-
-const PASSWORD="2589"
-
-function checkPassword(){
-
-const input=document.getElementById("passwordInput").value
-const error=document.getElementById("auth-error")
-
-if(input!==PASSWORD){
-
-error.textContent="Неправильный пароль"
-return
-
-}
-
-error.textContent=""
-
-document.getElementById("auth-screen").classList.add("hidden")
-
-const welcome=document.getElementById("welcome-screen")
-const video=document.getElementById("video-screen")
-
-welcome.classList.remove("hidden")
-
-setTimeout(()=>{
-
-welcome.classList.add("hidden")
-video.classList.remove("hidden")
-
-},2500)
-
-}
-
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
 
