@@ -5,34 +5,34 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>The M O O N</title>
-    
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" href="apple-touch-icon.png">
 
+    <!-- Иконка -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="apple-touch-icon.png">
+
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- АВТОРИЗАЦИЯ -->
-<div id="auth-screen" class="fullscreen-overlay">
-    <div class="glass-box">
-        <div class="auth-title">Введи пароль</div>
-        <input type="password" id="passwordInput" placeholder="Пароль">
-        <button onclick="checkPassword()">Войти</button>
-        <div id="auth-error" class="auth-error"></div>
+    <!-- АВТОРИЗАЦИЯ -->
+    <div id="auth-screen" class="fullscreen-overlay">
+        <div class="glass-box">
+            <div class="auth-title">Введи пароль</div>
+            <input type="password" id="passwordInput" placeholder="Пароль">
+            <button onclick="checkPassword()">Войти</button>
+            <div id="auth-error" class="auth-error"></div>
+        </div>
     </div>
-</div>
 
-<!-- ПРИВЕТСТВИЕ -->
-<div id="welcome-screen" class="fullscreen-overlay hidden">
-    <div class="welcome-text" style="text-align: center;">
-        Добро пожаловать, Екатерина!
+    <!-- ПРИВЕТСТВИЕ -->
+    <div id="welcome-screen" class="fullscreen-overlay hidden">
+        <div class="welcome-text">
+            Добро пожаловать, Екатерина!
+        </div>
     </div>
-</div>
 
-    <meta charset="UTF-8">
-    <title>Redirect</title>
-    <meta http-equiv="refresh" content="0; url=https://yandex.ru/pogoda/ru/nizhny-novgorod?lat=56.202014&lon=43.810565">
+    <!-- Подключение JS -->
+    <script src="script.js"></script>
 </body>
 </html>
-
