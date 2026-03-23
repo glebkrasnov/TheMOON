@@ -1,14 +1,19 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: #ffffff;
+    box-sizing: border-box;
 }
 
+body {
+    background: #f6f6f6;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Полноэкранные слои */
 .fullscreen-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.30);
+    background: rgba(0,0,0,0.45);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,8 +24,9 @@ body {
     display: none;
 }
 
+/* Полупрозрачный контейнер */
 .glass-box {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.75);
     border: 1px solid rgba(201,162,106,0.6);
     border-radius: 16px;
     padding: 24px;
@@ -61,17 +67,26 @@ body {
     font-size: 14px;
 }
 
+/* Приветствие */
 .welcome-text {
     font-family: "Monotype Corsiva", cursive;
-    font-size: 42px;
+    font-size: 36px;
     color: #fff;
-    text-align: center;
     animation: fadeWelcome 2.5s ease forwards;
+    text-align: center;
 }
 
+/* Анимация приветствия */
 @keyframes fadeWelcome {
     0% { opacity: 0; transform: scale(0.95); }
     20% { opacity: 1; }
     80% { opacity: 1; }
     100% { opacity: 0; transform: scale(1.05); }
+}
+
+/* Мобилки */
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 32px;
+    }
 }
