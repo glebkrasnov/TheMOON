@@ -1,38 +1,404 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The M O O N</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>The M O O N</title>
+<!-- ИКОНКА ДЛЯ iPHONE -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon09.04white.png">
 
-    <!-- Иконка -->
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="apple-touch-icon.png">
-
-    <!-- Подключение стилей -->
-    <link rel="stylesheet" href="style.css">
+    <!-- ОТКРЫТИЕ КАК ПРИЛОЖЕНИЕ -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- АВТОРИЗАЦИЯ -->
-    <div id="auth-screen" class="fullscreen-overlay">
-        <div class="glass-box">
-            <div class="auth-title">Введи пароль</div>
-            <input type="password" id="passwordInput" placeholder="Пароль">
-            <button onclick="checkPassword()">Войти</button>
-            <div id="auth-error" class="auth-error"></div>
+<!-- АВТОРИЗАЦИЯ -->
+<div id="auth-screen" class="fullscreen-overlay">
+    <div class="glass-box">
+        <div class="auth-title">Введи пароль</div>
+        <input type="password" id="passwordInput" placeholder="Пароль">
+        <button onclick="checkPassword()">Войти</button>
+        <div id="auth-error" class="auth-error"></div>
+    </div>
+</div>
+
+<!-- ПРИВЕТСТВИЕ -->
+<div id="welcome-screen" class="fullscreen-overlay hidden">
+    <div class="welcome-text" style="text-align: center;">
+    Добро пожаловать, Екатерина!
+</div>
+</div>
+
+<!-- МЕНЮ -->
+<div id="menu-screen" class="fullscreen-overlay hidden">
+  <div class="glass-box">
+    <h2 class="menu-title">2 года вместе!</h2>
+    <button onclick="openToast()">Тост🥂</button>
+    <button onclick="openStory()">Как это было...</button>
+  </div>
+</div>
+
+<!-- Торжественная речь -->
+<div id="toast-screen" class="fullscreen-overlay hidden">
+    <div class="toast-box">
+        <div class="talk-header">🌹 Торжественная речь</div>
+        <div class="talk-container">
+            <div class="talk-subtitle">Ровно два года</div>
+
+            <p>Ровно два года, как одно сообщение изменило мою жизнь.</p>
+            <p>Ровно два года, как я до сих пор нахожусь в шоке.</p>
+            <p>Ровно два года прошло с того момента, как я обрел своё счастье.</p>
+            <p>Ровно два года, как я понял, что рядом со мной — тот человек, с которым мне хочется быть.</p>
+            <p>Ровно два года, как каждое утро стало начинаться с улыбки, а вечер — с мыслей о тебе.
+            (Порой, я даже ночами не могу уснуть)</p>
+            <p>Ровно два года, как мы вместе учились слушать, слышать, понимать и прощать.</p>
+            <p>Ровно два года, как я нашёл свой смысл в твоих глазах.</p>
+            <p>Ровно два года, как моё сердце знает, кому оно принадлежит.</p>
+            <p>Ровно два года, как мой мир стал тёплым, потому что в нём есть ты.</p>
+            <p>Сегодня я вручил тебе букет из девяносто девяти роз.<br>
+            <p class="center-text">Почему именно 99?</p>
+            <p>Потому что в этом числе — наша история.<br>
+            <p>Одна девятка — как дата, когда всё началось.<br>
+            <p>Две девятки — как два года, проведённых вместе.<br>
+            <p>Пусть каждая роза напоминает тебе о дне, когда ты подарила мне улыбку, тепло и любовь.<br>
+            <p>И я хочу, чтобы следующие годы с тобой были не просто продолжением,
+            а бесконечной историей любви, которую мы пишем вместе!</p>
+            <p>- Твой Глеб</p>
+            <p class="center-text">09.04.2026г.</p>
+            <p>(Ровно два года, как ты заставляешь меня думать, что сказать, спросить аххахахах)</p>
+
+            <button onclick="backToMenu()" class="back-btn">Назад</button>
+        </div>
+    </div>
+</div>
+
+<!-- ЛЕНТА -->
+<div class="wrapper">
+    <h1 class="title">Как это было...</h1>
+
+    <h2 class="subtitle">
+        11 класс.<br>
+        Репетируем сценку к «Последнему Звонку»
+    </h2>
+<!-- photo1 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo1.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <div class="caption style1">
+        Я сижу и даже представить не могу, что ждёт меня впереди...
+    </div>
+
+    <!-- photo2 -->
+    <div class="row">
+        <div class="text">Здесь мы впервые<br>танцуем</div>
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo2.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
         </div>
     </div>
 
-    <!-- ПРИВЕТСТВИЕ -->
-    <div id="welcome-screen" class="fullscreen-overlay hidden">
-        <div class="welcome-text">
-            Добро пожаловать, Екатерина!
+    <div class="caption style1">
+        ...а я впервые держу за руки своё будущее счастье...
+    </div>
+
+    <div class="subtitle style2">
+        Выпускной!<br>Здесь мы приблатнённые 😎
+    </div>
+
+    <!-- photo3 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo3.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <div class="caption style1">
+        Помню, как очень стеснялся подойти к тебе сфотографироваться 😅
+    </div>
+
+    <!-- photo4 -->
+    <div class="row">
+        <div class="text">
+            Выпускной прошел.<br>
+            За ним ещё <span class="highlight-number">9</span> месяцев, а ты всё ещё в моей голове...
+        </div>
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo4.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
         </div>
     </div>
 
-    <!-- Подключение JS -->
-    <script src="script.js"></script>
+    <div class="caption style1">
+        И вот, наконец, настал тот день, когда я обрёл своё счастье!
+    </div>
+
+    <!-- photo5 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo5.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <!-- Отправил... + photo6 -->
+    <div class="row right-photo">
+        <div class="text big">Отправил...</div>
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo6.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
+        </div>
+    </div>
+
+    <!-- photo7 -->
+    <div class="row">
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo7.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
+        </div>
+        <div class="text">Проходят часы, а ответа нет...</div>
+    </div>
+
+    <div class="caption style1">Тем временем ты на паре...</div>
+
+    <!-- video1 -->
+    <div class="image-wrapper video-wrapper" onclick="revealPhoto(this)">
+    
+    <iframe
+        class="photo blurred"
+        src="https://www.youtube.com/embed/NPsgjNPziLc"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+    <div class="blur-overlay">Нажми</div>
+
+</div>
+
+
+    <!-- photo8 -->
+    <div class="row">
+        <div class="text">И тут приходит ответ...</div>
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo8.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
+        </div>
+    </div>
+
+    <!-- photo9 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo9.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <!-- photo10 -->
+    <div class="row">
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo10.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
+        </div>
+        <div class="text">нет блин, я прикалываюсь</div>
+    </div>
+
+    <div class="caption style1">
+        Ну ладно, надо ответить со всей «серьёзностью»
+    </div>
+
+    <!-- photo11 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo11.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <!-- photo12 -->
+    <div class="row">
+        <div class="text">серьёзный ответ</div>
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo12.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
+        </div>
+    </div>
+
+    <div class="caption style1">
+        Проходит время, опять молчит...
+    </div>
+
+    <!-- photo13 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo13.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <!-- photo14 -->
+    <div class="row">
+        <div class="text">Надо бы, что-то написать...</div>
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo14.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
+        </div>
+    </div>
+
+    <!-- photo15 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo15.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <!-- photo16 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo16.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <div class="caption style1">
+        Ну и с этого момента всё пошло, поехало...
+    </div>
+
+    <!-- photo17 -->
+    <div class="row">
+        <div class="text large">Моральная поддержка</div>
+        <div class="image-wrapper" onclick="revealPhoto(this)">
+            <img src="img/photo17.png" class="photo blurred">
+            <div class="blur-overlay">Нажми</div>
+        </div>
+    </div>
+
+    <div class="caption style1">
+        Да, не всегда всё идёт по плану, но зато поднял настроение)
+    </div>
+
+    <!-- video2 -->
+    <div class="image-wrapper video-wrapper" onclick="revealPhoto(this)">
+        <video class="photo blurred" controls>
+            <source src="vid/моральная поддержка.mp4" type="video/mp4">
+        </video>
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <div class="caption style1">Наше первое фото</div>
+
+    <!-- photo18 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo18.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+
+    <div class="caption style1">Открытие новых вкусов</div>
+
+    <!-- photo19 -->
+    <div class="image-wrapper" onclick="revealPhoto(this)">
+        <img src="img/photo19.png" class="photo blurred">
+        <div class="blur-overlay">Нажми</div>
+    </div>
+    
+    <div class="caption style1">Выполнение заданий</div>
+    <!-- Выполнение заданий -->
+<div class="image-wrapper video-wrapper" onclick="revealPhoto(this)">
+
+    <iframe
+        class="photo blurred"
+        src="https://www.youtube-nocookie.com/embed/mGcc8y2x_to"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <div class="blur-overlay">Нажми</div>
+
+</div>
+
+<div class="caption style1">Мастер классы</div>
+<!-- Мастер классы -->
+<div class="image-wrapper video-wrapper" onclick="revealPhoto(this)">
+
+    <iframe
+        class="photo blurred"
+        src="https://www.youtube-nocookie.com/embed/1IZLxNSEImU"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <div class="blur-overlay">Нажми</div>
+
+</div>
+
+<div class="caption style1">Первая совместная поездка</div>
+<!-- Первая совместная поездка -->
+<div class="image-wrapper video-wrapper" onclick="revealPhoto(this)">
+
+    <iframe
+        class="photo blurred"
+        src="https://www.youtube-nocookie.com/embed/qVCp4njz4RY"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <div class="blur-overlay">Нажми</div>
+
+</div>
+
+<!-- Кто здесь больше офигел -->
+<div class="caption style1">Кто здесь больше офигел?</div>
+<div class="image-wrapper" onclick="revealPhoto(this)">
+    <img src="img/photo20.png" class="photo blurred">
+    <div class="blur-overlay">Нажми</div>
+</div>
+
+<!-- Наш первый снеговик -->
+<div class="caption style1">Наш первый снеговик</div>
+<div class="image-wrapper video-wrapper" onclick="revealPhoto(this)">
+
+    <iframe
+        class="photo blurred"
+        src="https://www.youtube-nocookie.com/embed/ZlNDe7pVoWw"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <div class="blur-overlay">Нажми</div>
+
+</div>
+
+
+<!-- Каток -->
+<div class="caption style1">Каток</div>
+<div class="image-wrapper video-wrapper" onclick="revealPhoto(this)">
+
+    <iframe
+        class="photo blurred"
+        src="https://www.youtube-nocookie.com/embed/Hb_X9yq0xIE"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+
+    <div class="blur-overlay">Нажми</div>
+
+</div>
+
+
+<!-- Финальный заголовок -->
+<div class="final-love">
+    Я люблю тебя,<br>Екатерина!
+</div>
+<!-- ВСЯ ЛЕНТА БЕЗ ИЗМЕНЕНИЙ — сюда вставляется твой существующий HTML контент -->
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
