@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /***********************
  * АВТОРИЗАЦИЯ + МЕНЮ
  ***********************/
-const PASSWORD = "2"; // ← ПОМЕНЯЙ ПАРОЛЬ
+const PASSWORD = "2589"; // ← ПОМЕНЯЙ ПАРОЛЬ
 
 const authScreen    = document.getElementById("auth-screen");
 const welcomeScreen = document.getElementById("welcome-screen");
